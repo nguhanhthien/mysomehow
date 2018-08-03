@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <link rel="shortcut icon" href="<?php echo $this->url->get('img/14/faviconc79a.png') ?>" type="image/png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SomeHow Store - Shop for Men's Fashion</title>
+    <link rel="stylesheet" href="<?php echo $this->url->get('css/bootstrap.min.css') ?>">
+    <link href='<?php echo $this->url->get("css/style.css") ?>' rel='stylesheet' type='text/css' media='all'  />
+    <link href='<?php echo $this->url->get("css/styles.css") ?>' rel='stylesheet' type='text/css' media='all' />
+</head>
+<body>
+    <div canvas="container">
+        <!-- layout header -->
+        <?php $this->partial("shared/header"); ?>
+        
+        <?php echo $this->getContent(); ?>
+
+        <!-- layout container -->
+        <?php $this->partial("shared/container"); ?>
+        
+        <!-- layout footer -->
+        <?php $this->partial("shared/footer"); ?> 
+    <a href="#" class="scrollToTop">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    </div>   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script>
+        jQuery(document).ready(function(){
+            jQuery(".new-control").click(function(){
+                jQuery(this).toggleClass("control-span");
+            });
+        });
+    </script>
+    <script src="<?php echo $this->url->get('js/jquery.min.js') ?>"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="<?php echo $this->url->get('js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo $this->url->get('js/option_selection.min.js') ?>"></script>
+    <script src="<?php echo $this->url->get('js/api.jquery.min.js') ?>"></script>
+    <script src='<?php echo $this->url->get("js/plugin.min.js") ?>' type='text/javascript'></script>
+    <link href='<?php echo $this->url->get("css/plugin.min.css") ?>' rel='stylesheet' type='text/css'  media='all'  />
+    <script src='<?php echo $this->url->get("js/script.js") ?>' type='text/javascript'></script>
+    <div class="cart-fixscroll hidden">
+        <a href="<?php echo $this->url->get('cart') ?>">
+            <img src="<?php echo $this->url->get('img/14/cart.svg') ?>" alt="cart icon" width="16"/>
+            <span class="number-count">0</span>
+        </a>
+    </div>
+    <!-- <div off-canvas="slidebar-1 left reveal">
+    <div class="sidebar-container">
+        <div class="sidebar-body">
+            <ul>
+                <li class=""><a title="Trang chủ" href="index.html">Trang chủ</a></li>
+                <li>
+                    <a title="Sản phẩm" data-toggle="collapse" href="#collapse_2" aria-expanded="true" aria-controls="collapse_2">Sản phẩm</a>
+                    <div id="collapse_2" aria-expanded="true" class="collapse in">
+                        <ul>
+                            <li>
+                                <a href="collections/san-pham-moi" title="SẢN PHẨM MỚI">SẢN PHẨM MỚI</a>
+                            </li>
+                            <li>
+                                <a href="collections/san-pham-ban-chay.html" title="SẢN PHẨM BÁN CHẠY">SẢN PHẨM BÁN CHẠY</a>
+                            </li>
+                            <li>
+                                <a href="collections/san-pham-khuyen-mai" title="SALE OFF: UP TO 50%">SALE OFF: UP TO 50%</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-khoac.html" title="ÁO KHOÁC">ÁO KHOÁC</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-so-mi.html" title="ÁO SƠ MI">ÁO SƠ MI</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-thun.html" title="ÁO THUN">ÁO THUN</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-polo.html" title="ÁO POLO">ÁO POLO</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-ni" title="ÁO NỈ">ÁO NỈ</a>
+                            </li>
+                            <li>
+                                <a href="collections/ao-len.html" title="ÁO LEN">ÁO LEN</a>
+                            </li>
+                            <li>
+                                <a href="collections/hoodies" title="HOODIES">HOODIES</a>
+                            </li>
+                            <li>
+                                <a href="collections/quan-kaki" title="QUẦN KAKI">QUẦN KAKI</a>
+                            </li>
+                            <li>
+                                <a href="collections/quan-jean.html" title="QUẦN JEAN">QUẦN JEAN</a>
+                            </li>
+                            <li>
+                                <a href="collections/quan-tay.html" title="QUẦN TÂY">QUẦN TÂY</a>
+                            </li>
+                            <li>
+                                <a href="collections/quan-dui" title="QUẦN ĐÙI">QUẦN ĐÙI</a>
+                            </li>
+                            <li>
+                                <a href="collections/jogger" title="JOGGERS">JOGGERS</a>
+                            </li>
+                            <li>
+                                <a href="collections/non-vo-underwear-phu-kien.html" title="NÓN - VỚ - UNDERWEAR - PHỤ KIỆN">NÓN - VỚ - UNDERWEAR - PHỤ KIỆN</a>
+                            </li>
+                            <li>
+                                <a href="collections/giay-dep" title="GIÀY - DÉP">GIÀY - DÉP</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class=""><a title="Giới thiệu" href="pages/about-us.html">Giới thiệu</a></li>
+                <li>
+                    <a title="Hướng dẫn" data-toggle="collapse" href="#collapse_4" aria-expanded="true" aria-controls="collapse_4">Hướng dẫn</a>
+                    <div id="collapse_4" aria-expanded="true" class="collapse in">
+                        <ul>
+                            <li>
+                                <a href="pages/huong-dan-mua-hang-online.html" title="Hướng Dẫn Mua Hàng Online">Hướng Dẫn Mua Hàng Online</a>
+                            </li>
+                            <li>
+                                <a href="blogs/huong-dan-lua-size.html" title="Hướng Dẫn Lựa Chọn Size">Hướng Dẫn Lựa Chọn Size</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="">
+                    <a title="Địa chỉ cửa hàng" href="pages/he-thong-cua-hang">Địa chỉ cửa hàng</a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+</div> 
+</body>
+</html>

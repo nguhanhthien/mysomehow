@@ -1,0 +1,42 @@
+<div id="layout-page" class="bgfafafa">
+	<div class="container">
+		<div id="customer-login">
+			<div id="login" class="userbox">
+				<h1>Đăng nhập</h1>
+				<form accept-charset='UTF-8' action='/account/login' id='customer_login' method='post'>
+					<input name='form_type' type='hidden' value='customer_login'>
+					<input name='utf8' type='hidden' value='✓'>
+					<div class="clearfix large_form">
+						<input required type="email" value="" name="customer[email]" id="customer_email" placeholder="Email" class="text" />
+						<input required type="password" value="" name="customer[password]" id="customer_password" placeholder="Mật khẩu" class="text" />      
+					</div>
+					<div class="action_bottom text-center">
+						<input class="btn-more btn-login" type="submit" value="Đăng nhập" />
+						<a href="#" onclick="showRecoverPasswordForm();return false;">Quên mật khẩu?</a>
+					</div>
+					<div class="req_pass">
+						<a class="btn-more btn-register" href="<?php echo $this->url->get('login/register') ?>" title="Đăng ký">Đăng ký</a>
+					</div>
+				</form>
+			</div>
+			<div id="recover-password" style="display:none;" class="userbox">
+				<div class="accounttype">
+					<h2>Phục hồi mật khẩu</h2>
+				</div>		
+				<form accept-charset='UTF-8' action='/account/recover' method='post'>
+					<input name='form_type' type='hidden' value='recover_customer_password'>
+					<input name='utf8' type='hidden' value='✓'>
+					<div class="clearfix large_form">
+						<input type="email" value="" size="30" name="email" placeholder="Email" id="recover-email" class="text" />
+					</div>
+					<div class="action_bottom">
+						<input class="btn-more btn-login" type="submit" value="Gửi" />
+					</div>
+					<div class="req_pass">
+						<a class="btn-more btn-register" href="#" onclick="hideRecoverPasswordForm();return false;">Hủy</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

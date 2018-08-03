@@ -1,0 +1,131 @@
+<?php $ControllerName = $this->router->getControllerName() ?>
+<header>
+    <div class="header-top clearfix hidden-xs hidden-sm">
+        <div class="container">
+            <h1 class="logo">
+                <a href="<?php echo $this->url->get('') ?>" class="brand">
+                    <img src="<?php echo $this->url->get('img/14/logo.svg') ?>" alt="SomeHow Store" />
+                </a>
+            </h1>
+            <div class="user-cart hidden-xs hidden-sm">
+                <a href="<?php echo $this->url->get('login') ?>">Đăng nhập</a>
+                <a href="<?php echo $this->url->get('cart') ?>" class="cart-top">
+                    Giỏ hàng<span class="cart-count">0</span>
+                    <div class="cart-top-info">
+                        <p>Tổng cộng: 0</p>
+                        <span>Giỏ hàng</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom clearfix hidden-xs hidden-sm">
+        <div class="container">
+            <div class="menu-center">
+                <ul class="main-menu clearfix">
+                    <li>
+                        <a class="<?= $ControllerName == '' ? 'active' : null ?> " href="<?php echo $this->url->get() ?>">Trang chủ</a>
+                    </li>
+                    <li class="" >
+                        <a class="<?= $ControllerName == 'products' ? 'active' : null ?> "href="<?php echo $this->url->get('products') ?>">Sản phẩm</a>
+                        <div class="sub">
+                            <div class="sub-container">
+                                <ul class="menu-item bg">
+                                    <li><a href="<?= $this->url->get('products/new') ?>">SẢN PHẨM MỚI</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">SẢN PHẨM BÁN CHẠY</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">SALE OFF: UP TO 50%</a></li>
+                                </ul>
+                                <ul class="menu-item">
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO KHOÁC</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO SƠ MI</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO THUN</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO POLO</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO NỈ</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">ÁO LEN</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">HOODIES</a></li>
+                                </ul>
+                                <ul class="menu-item">
+                                    <li><a href="<?= $this->url->get('products/new') ?>">QUẦN JEAN</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">QUẦN KAKI</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">QUẦN TÂY</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">QUẦN ĐÙI</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">JOGGERS</a></li>
+                                </ul>
+                                <ul class="menu-item">
+                                    <li><a href="<?= $this->url->get('products/new') ?>">NÓN - VỚ - UNDERWEAR - PHỤ KIỆN</a></li>
+                                    <li><a href="<?= $this->url->get('products/new') ?>">GIÀY - DÉP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('about') ?>">Giới thiệu</a>
+                    </li>
+                    <li class=" has-child" >
+                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('introduce') ?>">Hướng dẫn</a>
+                        <ul class="child">
+                            <li><a href="<?php echo $this->url->get('introduce') ?>">Hướng Dẫn Mua Hàng Online</a></li>
+                            <li><a href="<?php echo $this->url->get('introduce/size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('address') ?>">Địa chỉ cửa hàng</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search-pc pull-right"><span>Tìm kiếm</span>
+                <div class="search-bar">
+                    <div class="container">
+                        <form action="http://somehow.vn/search" class="search-top">
+                            <label>Tìm kiếm:</label>
+                            <input type="hidden" name="type" value="product" />
+                            <input type="text" name="q" placeholder="Nhập từ khóa tìm kiếm..." />
+                            <button type="submit" class="search-btn">Nhập</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-new visible-xs visible-sm">
+        <div class="container clearfix ">
+            <div class="header-container clearfix">
+                <div class="clearfix">
+                    <div class="js-toggle-left-slidebar js-menu-mobile">
+                        <div class="trigger-menu">
+                            <span class="three-bars-icon"></span><span class="text">menu</span>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img alt="SomeHow Store" src="<?php echo $this->url->get('img/14/logo.svg') ?>">
+                        </a>
+                    </div>
+                    <div class="login-icon">
+                        <a href="account/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="menu-top clearfix">
+                        <div class="search">
+                            <span class="ic-search" onclick="Search();"></span>
+                        </div>
+                    </div>
+                    <div class="search-on-mobile">
+                        <div class="inside">
+                            <form action="http://somehow.vn/search" method="get">
+                                <input type="hidden" value="product" name="type"/>
+                                <input value="" name="q" id="input-search-mobile" type="text" placeholder="Tìm kiếm...">
+                                <a href="#!" class="close-search-mobile">Đóng search</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="cart-top">
+                        <a href="cart.html">
+                            <img src="<?php echo $this->url->get('img/14/cart.svg') ?>" alt="cart mobile" width="16"/>
+                            <span class="number-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
