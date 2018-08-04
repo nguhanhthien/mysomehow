@@ -35,7 +35,7 @@ class Application extends BaseApplication
         $di->setShared('mongo', function () {
             $dsn = 'mongodb://localhost';
             $mongo = new Client($dsn);
-            return $mongo->selectDatabase('shop');
+            return $mongo->selectDatabase('mysomehow');
         });
 
         // Collection Manager is required for MongoDB
@@ -67,11 +67,15 @@ class Application extends BaseApplication
                 'action'     => 2,
             ])->setName('frontend');
 
-            $router->add("/admin/:controller/:action", [
+            $router->add("/admin/home", [
+                'module'     => 'backend',
+            ])->setName('backend');
+
+            $router->add('/admin/:controller/:action', [
                 'module'     => 'backend',
                 'controller' => 1,
                 'action'     => 2,
-            ])->setName('backend');
+            ])->setName('frontend-control');
 
             $router->add('/rockmongo', [
                 'module'     => 'Models',
