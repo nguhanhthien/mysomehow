@@ -33,7 +33,7 @@ class Application extends BaseApplication
 
         // Initialise the mongo DB connection.
         $di->setShared('mongo', function () {
-            $dsn = 'mongodb://localhost';
+            $dsn = 'mongodb://localhost:27017';
             $mongo = new Client($dsn);
             return $mongo->selectDatabase('mysomehow');
         });
@@ -50,6 +50,7 @@ class Application extends BaseApplication
 
         $loader->registerNamespaces(array(
             'Models' => '../apps/Models/',
+            'Phalcon' => '../apps/library/incubator/Library/Phalcon/'
         ));
 
         $loader->register();
@@ -77,9 +78,9 @@ class Application extends BaseApplication
                 'action'     => 2,
             ])->setName('frontend-control');
 
-            $router->add('/rockmongo', [
+            $router->add('/rockmongodb', [
                 'module'     => 'Models',
-            ])->setName('rockmongo');
+            ])->setName('rockmongodb');
 
             return $router;
         });

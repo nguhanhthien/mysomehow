@@ -5,7 +5,7 @@
  * In here we define some default settings and start the configuration files
  * @package rockmongo
  */
-require_once 'vendor/autoload.php';
+
 /**
 * Defining version number and enabling error reporting
 */
