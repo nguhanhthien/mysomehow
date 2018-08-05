@@ -9,9 +9,10 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-    	$user = new Users();
-    	$user = Users::findById('5b65055fcb9ca910700008f5');
-    	echo $user->name;
+    	//$user = new Users();
+    	$user = Users::find();
+    	echo 'There are ', count($user), "\n";
+    	
 		die();
     }
 }

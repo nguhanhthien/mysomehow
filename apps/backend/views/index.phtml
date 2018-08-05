@@ -6,16 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>MySomeHow admin</title>
 	<!-- plugins:css -->
-	<link rel="stylesheet" href="<?= $this->url->get('admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css') ?>">
-	<link rel="stylesheet" href="<?= $this->url->get('admin/vendors/css/vendor.bundle.base.css') ?>">
-	<link rel="stylesheet" href="<?= $this->url->get('admin/vendors/css/vendor.bundle.addons.css') ?>">
+	<link rel="stylesheet" href="<?= $this->url->get('ad/vendors/iconfonts/mdi/css/materialdesignicons.min.css') ?>">
+	<link rel="stylesheet" href="<?= $this->url->get('ad/vendors/css/vendor.bundle.base.css') ?>">
+	<link rel="stylesheet" href="<?= $this->url->get('ad/vendors/css/vendor.bundle.addons.css') ?>">
 	<!-- endinject -->
 	<!-- plugin css for this page -->
 	<!-- End plugin css for this page -->
 	<!-- inject:css -->
-	<link rel="stylesheet" href="<?= $this->url->get('admin/css/style.css') ?>">
+	<link rel="stylesheet" href="<?= $this->url->get('ad/css/style.css') ?>">
 	<!-- endinject -->
-	<link rel="shortcut icon" href="<?= $this->url->get('admin/images/favicon.png') ?>" />
+	<link rel="shortcut icon" href="<?= $this->url->get('ad/images/favicon.png') ?>" />
 </head>
 <body>
 	<div class="container-scroller">
@@ -38,7 +38,7 @@
 					<!-- load orders -->
 					<?php $this->partial('shared/orders') ?>
 
-					<!-- load orders -->
+					<!-- load last -->
 					<?php $this->partial('shared/last') ?>
 				</div>
 				<!-- content-wrapper ends -->
@@ -53,17 +53,17 @@
 	<!-- container-scroller -->
 
 	<!-- plugins:js -->
-	<script src="<?= $this->url->get('admin/vendors/js/vendor.bundle.base.js') ?>"></script>
-	<script src="<?= $this->url->get('admin/vendors/js/vendor.bundle.addons.js') ?>"></script>
+	<script src="<?= $this->url->get('ad/vendors/js/vendor.bundle.base.js') ?>"></script>
+	<script src="<?= $this->url->get('ad/vendors/js/vendor.bundle.addons.js') ?>"></script>
 	<!-- endinject -->
 	<!-- Plugin js for this page-->
 	<!-- End plugin js for this page-->
 	<!-- inject:js -->
-	<script src="<?= $this->url->get('admin/js/off-canvas.js') ?>"></script>
-	<script src="<?= $this->url->get('admin/js/misc.js') ?>"></script>
+	<script src="<?= $this->url->get('ad/js/off-canvas.js') ?>"></script>
+	<script src="<?= $this->url->get('ad/js/misc.js') ?>"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page-->
-	<script src="<?= $this->url->get('admin/js/dashboard.js') ?>"></script>
+	<script src="<?= $this->url->get('ad/js/dashboard.js') ?>"></script>
 	<!-- End custom js for this page-->
 </body>
 
