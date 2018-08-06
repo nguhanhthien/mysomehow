@@ -1,3 +1,8 @@
+/* class errors */
+.errors{
+    color: red;
+    margin-left: 5px;
+}
 .label,
 sub,
 sup {

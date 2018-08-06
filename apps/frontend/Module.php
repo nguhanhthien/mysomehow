@@ -27,7 +27,7 @@ class Module implements ModuleDefinitionInterface
                 'Mysomwhow\Frontend\Models' => '../apps/frontend/models/',
             ]
         );
-
+        //$loader->registerDirs(array(__DIR__ . '/helper'));
         $loader->register();
     }
 

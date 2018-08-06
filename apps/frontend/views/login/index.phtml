@@ -3,12 +3,15 @@
 		<div id="customer-login">
 			<div id="login" class="userbox">
 				<h1>Đăng nhập</h1>
-				<form accept-charset='UTF-8' action='/account/login' id='customer_login' method='post'>
+				<form accept-charset='UTF-8' action='' id='customer_login' method='post'>
 					<input name='form_type' type='hidden' value='customer_login'>
 					<input name='utf8' type='hidden' value='✓'>
+					<?php if (isset($loginError)): ?>
+						<div class="errors"><?= $loginError ?></div>
+					<?php endif; ?>
 					<div class="clearfix large_form">
-						<input required type="email" value="" name="customer[email]" id="customer_email" placeholder="Email" class="text" />
-						<input required type="password" value="" name="customer[password]" id="customer_password" placeholder="Mật khẩu" class="text" />      
+						<input required type="email" value="" name="email" id="customer_email" placeholder="Email" class="text" />
+						<input required type="password" value="" name="password" id="customer_password" placeholder="Mật khẩu" class="text" />      
 					</div>
 					<div class="action_bottom text-center">
 						<input class="btn-more btn-login" type="submit" value="Đăng nhập" />
@@ -40,3 +43,16 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function showRecoverPasswordForm() {
+	document.getElementById('recover-password').style.display = 'block';
+	document.getElementById('login').style.display='none';
+	}
+
+	function hideRecoverPasswordForm() {
+	document.getElementById('recover-password').style.display = 'none';
+	document.getElementById('login').style.display = 'block';
+	}
+
+	if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+</script>

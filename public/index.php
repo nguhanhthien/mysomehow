@@ -7,6 +7,7 @@ use Phalcon\Mvc\Application as BaseApplication;
 use Phalcon\Mvc\Url;
 use Phalcon\Mvc\Collection\Manager;
 use Phalcon\Db\Adapter\MongoDB\Client;
+use Phalcon\Session\Adapter\Files as Session;
 
 class Application extends BaseApplication
 {
@@ -31,15 +32,27 @@ class Application extends BaseApplication
             }
         );
 
+        // Start the session the first time when some component request the session service
+        $di->setShared(
+            "session",
+            function () {
+                $session = new Session();
+
+                $session->start();
+
+                return $session;
+            }
+        );
+
         // Initialise the mongo DB connection.
-        $di->setShared('mongo', function () {
+        $di->set('mongo', function () {
             $dsn = 'mongodb://localhost:27017';
-            $mongo = new Client($dsn);
-            return $mongo->selectDatabase('mysomehow');
-        });
+            $mongo = new MongoClient($dsn);
+            return $mongo->selectDB('mysomehow');
+        }, true);
 
         // Collection Manager is required for MongoDB
-        $di->setShared('collectionManager', function () {
+        $di->set('collectionManager', function () {
             return new Manager();
         });
 
@@ -50,6 +63,7 @@ class Application extends BaseApplication
 
         $loader->registerNamespaces(array(
             'Models' => '../apps/Models/',
+            'Helper' => '../apps/Helper/',
             'Phalcon' => '../apps/library/incubator/Library/Phalcon/'
         ));
 

@@ -24,10 +24,10 @@ class Module implements ModuleDefinitionInterface
             [
                 'Mysomwhow\Backend\Controllers' => '../apps/backend/controllers/',
                 'Mysomwhow\Backend\Models'      => '../apps/backend/models/',
-                'Mysomwhow\Backend\Plugins'     => '../apps/backend/plugins/',
+                // 'Mysomwhow\Backend\Plugins'     => '../apps/backend/plugins/',
             ]
         );
-
+        $loader->registerDirs(array(__DIR__ . '/helper'));
         $loader->register();
     }
 

@@ -8,7 +8,13 @@
                 </a>
             </h1>
             <div class="user-cart hidden-xs hidden-sm">
-                <a href="<?php echo $this->url->get('login') ?>">Đăng nhập</a>
+                <?php 
+                if ($this->session->has('userName')) {
+                    echo "<a href=".$this->url->get('account').">Chào ".$this->session->get("userName")."</a>";
+                }
+                else{
+                    echo "<a href=".$this->url->get('login').">Đăng nhập</a>";
+                }?>
                 <a href="<?php echo $this->url->get('cart') ?>" class="cart-top">
                     Giỏ hàng<span class="cart-count">0</span>
                     <div class="cart-top-info">

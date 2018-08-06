@@ -9,10 +9,18 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-    	//$user = new Users();
-    	$user = Users::find();
-    	echo 'There are ', count($user), "\n";
-    	
-		die();
+    	$users = Users::find([
+    		[
+                //'name' => 'vinhxp03@gmail.com',
+    			'password' => 'admin12',
+    		],
+    		// 'sort' => ['created_at' > -1]
+    	]);
+
+    	//echo "<br/>".$users->name;
+    	foreach ($users as $key => $value) {
+    	   echo "<br/>".$value->name;
+    	}
+    	die();
     }
 }
