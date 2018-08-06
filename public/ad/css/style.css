@@ -57,6 +57,16 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+
+/* css for table admin */
+.table-outter-wrapper { overflow-x: scroll; }
+
+/* css error admin */
+.errors {
+    color: red;
+    font-size: 15px;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 @-moz-keyframes flash {

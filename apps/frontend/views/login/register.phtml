@@ -30,7 +30,7 @@
 					<input class="btn-more btn-login" type="submit" value="Đăng ký" />			
 				</div>
 				<div class="req_pass">
-					<a class="btn-more btn-register" href="<?= $this->url->get('login') ?>">Quay về</a>
+					<a class="btn-more btn-register" href="<?= $this->url->get('frontend/login') ?>">Quay về</a>
 				</div>
 				</form>
 			</div>
@@ -41,7 +41,7 @@
 	$(document).ready(function () {
 		$('#email').blur(function () {
 			var mail = $(this).val();
-			$.post("<?= $this->url->get('login/checkUser') ?>", {email:mail}, function (data) {
+			$.post("<?= $this->url->get('frontend/login/checkUser') ?>", {email:mail}, function (data) {
 				if (data!=0) {
 					alert("Email này đã có người đăng ký rồi!");
 					$('#email').val('');

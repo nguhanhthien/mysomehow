@@ -9,6 +9,7 @@ use Phalcon\Http\Response;
 use Phalcon\Mvc\Collection\Manager;
 use Phalcon\Db\Adapter\MongoDB\Client;
 use Phalcon\Session\Adapter\Files as Session;
+use Phalcon\Flash\Session as FlashSession;
 
 class Application extends BaseApplication
 {
@@ -42,6 +43,14 @@ class Application extends BaseApplication
                 $session->start();
 
                 return $session;
+            }
+        );
+
+        // Set up the flash session service
+        $di->set(
+            "flashSession",
+            function () {
+                return new FlashSession();
             }
         );
 
@@ -83,7 +92,7 @@ class Application extends BaseApplication
                 $namespace  = 'Mysomwhow\Backend\Controllers';
             }
 
-            $router     = new Router();
+            $router = new Router();
 
             $router->setDefaultModule("frontend");
 
@@ -118,6 +127,8 @@ class Application extends BaseApplication
                 'action' => 2,
                 'params' => 3
             ));
+
+            // router frontend
 
             // Mongodb Control Panel
             $router->add('/rockmongodb', [

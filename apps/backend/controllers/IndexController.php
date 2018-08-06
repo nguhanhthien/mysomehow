@@ -2,8 +2,6 @@
 
 namespace Mysomwhow\Backend\Controllers;
 
-use Phalcon\Mvc\Controller;
-
 class IndexController extends BaseController
 {
     public function indexAction()
@@ -11,8 +9,8 @@ class IndexController extends BaseController
         //return $this->response->forward('login');
     }
 
-    public function notfoundAction()
+    public function notFoundAction()
     {
-    	echo "404";die();
+    	
     }
 }

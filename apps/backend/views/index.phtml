@@ -18,7 +18,7 @@
 	<link rel="shortcut icon" href="<?= $this->url->get('ad/images/favicon.png') ?>" />
 </head>
 <body>
-	<?php if($this->router->getControllerName() != 'login'): ?>
+	<?php if(($this->router->getControllerName() != 'login') && ($this->router->getActionName() != 'notFound')): ?>
 	<div class="container-scroller">
 
 		<!-- load navbar -->
