@@ -12,6 +12,7 @@ class UsersController extends BaseController
         $this->view->setVar('users',$users);
     }
 
+    // Update users
     public function updateAction($id = null)
     {
     	if($id){
@@ -33,6 +34,22 @@ class UsersController extends BaseController
     			$this->flashSession->warning('Không tìm thấy khách hàng này.');
 	    		$this->response->redirect('backend/users');
 	    	}
+    	}
+    }
+
+    // Delete users
+    public function deleteAction($id = null)
+    {
+    	if ($id) {
+    		$users = Users::findById($id);
+    		if ($users) {
+    			$users->delete();
+    			$this->flashSession->success('Xóa thông tin khách hàng thành công.');
+	    		$this->response->redirect('backend/users');
+    		}else{
+    			$this->flashSession->warning('Không tìm thấy khách hàng này.');
+	    		$this->response->redirect('backend/users');
+    		}
     	}
     }
 }

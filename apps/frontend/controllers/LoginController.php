@@ -54,6 +54,8 @@ class LoginController extends \Phalcon\Mvc\Controller
                 $user->name = $email;
                 $user->email = $email;
                 $user->password = $password;
+                $user->created_at = time();
+                $user->updated_at = time();
 
                 if ($user->save() == false) {
 
@@ -63,11 +65,11 @@ class LoginController extends \Phalcon\Mvc\Controller
                         echo $message;
                     }
                     $this->view->setVar('messages', $messages);
-                    return $this->response->redirect('login/register');
+                    return $this->response->redirect('frontend/login/register');
                 }else{
                     // đăng ký thành công
                     $this->session->set("userName", $user->display_name);
-                    return $this->response->redirect('account');
+                    return $this->response->redirect('frontend/account');
                 }
             }
         }

@@ -50,7 +50,12 @@ class Application extends BaseApplication
         $di->set(
             "flashSession",
             function () {
-                return new FlashSession();
+                return new FlashSession([
+                    'error'     => 'alert alert-danger',
+                    'notice'    => 'alert alert-info',
+                    'success'   => 'alert alert-success',
+                    'warning'   => 'alert alert-warning',
+                ]);
             }
         );
 
