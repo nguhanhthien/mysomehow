@@ -5,6 +5,7 @@ use Phalcon\Mvc\Router;
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
 use Phalcon\Mvc\Url;
+use Phalcon\Http\Response;
 use Phalcon\Mvc\Collection\Manager;
 use Phalcon\Db\Adapter\MongoDB\Client;
 use Phalcon\Session\Adapter\Files as Session;
@@ -26,7 +27,7 @@ class Application extends BaseApplication
             function () {
                 $url = new Url();
 
-                $url->setBaseUri('http://mysomehow.vn/');
+                $url->setBaseUri('http://localhost/mysomehow/');
 
                 return $url;
             }
@@ -72,26 +73,53 @@ class Application extends BaseApplication
         // Registering a router
         $di->set('router', function () {
 
-            $router = new Router();
+            $domain     = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            $backend    = strpos($domain, '/backend');
+            $key        = 'frontend';
+            $namespace  = 'Mysomwhow\Frontend\Controllers';
+
+            if($backend != false){
+                $key        = 'backend';
+                $namespace  = 'Mysomwhow\Backend\Controllers';
+            }
+
+            $router     = new Router();
 
             $router->setDefaultModule("frontend");
 
-            $router->add('/:controller/:action', [
-                'module'     => 'frontend',
+            // Router default
+            $router->add('/:params', array(
+                'namespace' => $namespace,
+                'module' => $key,
+                'controller' => 'index',
+                'action' => 'index',
+                'params' => 1
+            ));
+
+            $router->add('/' . $key . '/:params', array(
+                'namespace' => $namespace,
+                'module' => $key,
+                'controller' => 'index',
+                'action' => 'index',
+                'params' => 1
+            ));
+
+            $router->add('/' . $key . '/:controller/:params', array(
+                'namespace' => $namespace,
+                'module' => $key,
                 'controller' => 1,
-                'action'     => 2,
-            ])->setName('frontend');
-
-            $router->add("/admin/home", [
-                'module'     => 'backend',
-            ])->setName('backend');
-
-            $router->add('/admin/:controller/:action', [
-                'module'     => 'backend',
+                'action' => 'index',
+                'params' => 2
+            ));
+            $router->add('/' . $key . '/:controller/:action/:params', array(
+                'namespace' => $namespace,
+                'module' => $key,
                 'controller' => 1,
-                'action'     => 2,
-            ])->setName('frontend-control');
+                'action' => 2,
+                'params' => 3
+            ));
 
+            // Mongodb Control Panel
             $router->add('/rockmongodb', [
                 'module'     => 'Models',
             ])->setName('rockmongodb');

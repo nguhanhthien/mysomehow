@@ -18,6 +18,7 @@
 	<link rel="shortcut icon" href="<?= $this->url->get('ad/images/favicon.png') ?>" />
 </head>
 <body>
+	<?php if($this->router->getControllerName() != 'login'): ?>
 	<div class="container-scroller">
 
 		<!-- load navbar -->
@@ -29,17 +30,7 @@
 			<!-- partial -->
       		<div class="main-panel">
 				<div class="content-wrapper">
-					<?php $this->partial('shared/head') ?>
-
-					<?php $this->partial('shared/head1') ?>
-					
-					<?php $this->partial('shared/head2') ?>
-					
-					<!-- load orders -->
-					<?php $this->partial('shared/orders') ?>
-
-					<!-- load last -->
-					<?php $this->partial('shared/last') ?>
+					<?php echo $this->getContent(); ?>
 				</div>
 				<!-- content-wrapper ends -->
     			<!-- partial:partials/_footer.html -->
@@ -50,6 +41,9 @@
 		</div>
 		<!-- page-body-wrapper ends -->
 	</div>
+	<?php else: ?>
+		<?php echo $this->getContent(); ?>
+	<?php endif; ?>
 	<!-- container-scroller -->
 
 	<!-- plugins:js -->
