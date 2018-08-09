@@ -23,7 +23,7 @@ class UsersController extends BaseController
 		    	if ($this->request->isPost()) {
 		    		$users->display_name = $this->request->getPost('display_name','string');
 		    		$users->phone = $this->request->getPost('phone','string');
-		    		$users->email = $this->request->getPost('email','email');
+		    		//$users->email = $this->request->getPost('email','email');
 		    		$users->address = $this->request->getPost('address','string');
 		    		$users->updated_at = time();
 		    		$users->save();		    	

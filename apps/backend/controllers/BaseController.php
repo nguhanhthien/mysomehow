@@ -11,18 +11,14 @@ class BaseController extends Controller
 	protected $admin;
 
     public function initialize()
-    {
-    	$this->admin = $this->session->get('admin');
+    {      	
+        $this->admin = $this->session->get('admin');
 
+        // kiểm tra nếu chưa chưa login thì login
     	if(!$this->admin){
     		//header('Location:'.$this->url->get('backend/login'));
     		$this->response->redirect('backend/login');
     	}
-
-    	/*if ($this->admin && $this->router->getControllerName() == 'login') {
-    		echo "stringd";die();
-    		$this->response->redirect('backend');
-    	}*/
     }
 
 }

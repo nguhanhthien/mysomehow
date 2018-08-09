@@ -18,6 +18,12 @@ class LoginController extends Controller
     	$newAdmin->created_at = time();
     	$newAdmin->updated_at = time();
     	$newAdmin->save();	*/
+
+        // kiểm tra nếu login rồi thì không cho login nữa
+        if ($this->session->get('admin') && ($this->router->getControllerName() == 'login')) {
+            $this->response->redirect('backend');
+        }    
+
         if ($this->request->isPost()) {
             // lay noi dung login
             $email = $this->request->getPost('username');

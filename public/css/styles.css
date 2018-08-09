@@ -124,7 +124,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #fcce6f; }
+  color: #9100ff; }
 
 a:active {
   outline: none; }
@@ -212,7 +212,7 @@ a.scrollToTop {
   display: none;
   color: #fcce6f;
   text-align: center;
-  background: #000;
+  background: #2b2b2b;
   line-height: 35px;
   font-size: 24px; }
 
@@ -322,9 +322,16 @@ span.old-price {
   margin-left: 5px;
   color: #999; }
 
+/* Form search */
+.form-search {
+  position: absolute;
+  left: 445px;
+  top: 63px;
+}
+
 /*----------------------footer----------------------*/
 footer {
-  background: #2d2d2d; }
+  background: #656565; }
   footer .footer-block {
     border-bottom: 1px solid #9b9b9b;
     padding: 25px 0; }
@@ -405,29 +412,33 @@ footer {
 
 /*---------------------header----------------------*/
 .header-top {
-  background: #2d2d2d;
+  background: #fff;
   border-bottom: 1px solid #a3a3a3; }
   .header-top .logo {
     float: left;
     text-align: center;
-    width: calc(100% - 200px);
     margin: 0;
     padding: 18px 0 10px 200px; }
     .header-top .logo img {
+      position: relative;
       max-width: 80px; }
   .header-top .user-cart {
-    float: right;
-    padding-right: 20px;
-    margin-top: 78px;
-    max-width: 200px; }
+    float: right; 
+    margin-top: 60px;}
     .header-top .user-cart a {
-      color: #fff;
+      color: #000;
       font-size: 13px;
-      display: inline-block; }
+      display: inline-block; 
+      background: #e5e5e5;
+      padding: 8px 20px;
+      margin: 5px;
+      float: left;}
       .header-top .user-cart a.cart-top {
         padding: 0 22px 0 40px;
-        background: url(../img/14/cartc79a.png) top right no-repeat;
-        position: relative; }
+        /* background: url(../img/14/cartc79a.png) top right no-repeat; */
+        position: relative; 
+        background: #e5e5e5;
+        padding: 8px 20px;}
         .header-top .user-cart a.cart-top .cart-count {
           position: absolute;
           font-size: 9px;
@@ -462,10 +473,10 @@ footer {
         .header-top .user-cart a.cart-top:hover .cart-top-info {
           display: block; }
       .header-top .user-cart a:hover {
-        color: #fcce6f; }
+        color: #9100ff; }
 
 .header-bottom {
-  background: #2d2d2d;
+  background: #e28d8d;
   position: relative; }
   .header-bottom .menu-center {
     float: left;
@@ -485,12 +496,12 @@ footer {
         font-size: 13px;
         display: block; }
         .header-bottom .menu-center .main-menu li a:hover {
-          color: #fcce6f; }
+          color: #9100ff; }
       .header-bottom .menu-center .main-menu li.has-child {
         position: relative; }
       .header-bottom .menu-center .main-menu li .active {
         position: relative;
-        color: #fcce6f; }
+        color: #9100ff; }
         .header-bottom .menu-center .main-menu li .active:before {
           content: '';
           position: absolute;
@@ -577,7 +588,7 @@ footer {
             .header-bottom .menu-center .main-menu li .child li a:hover {
               color: #fcce6f; }
   .header-bottom .search-pc span {
-    color: #fff;
+    color: #000;
     text-transform: uppercase;
     font-size: 13px;
     padding: 12px 0 18px;
@@ -664,7 +675,7 @@ footer {
       margin-bottom: 16px; }
     #owl-index .item .slider-caption .slider-btn {
       line-height: 35px;
-      background: #c6ab7f;
+      background: #ea8080;
       color: #fff;
       text-transform: uppercase;
       font-weight: bold;
@@ -673,7 +684,7 @@ footer {
       text-align: center;
       width: 175px; }
       #owl-index .item .slider-caption .slider-btn:hover {
-        background: #fcce6f; }
+        background: #fb7272; }
 
 #owl-index .owl-controls .owl-buttons div {
   width: 40px;
@@ -752,7 +763,7 @@ footer {
 
 .best-seller {
   padding: 15px 0 30px;
-  background: #ede2cf; }
+  background: #f9cdcd; }
   .best-seller .main-title {
     margin-bottom: 15px; }
 
@@ -838,7 +849,7 @@ footer {
   padding: 25px 0 45px; }
 
 .box-icon .banner-footer-item {
-  border: 1px #E7E7E7 solid;
+  border: 1px #f9cdcd solid;
   padding: 10px 10px 52px 10px;
   margin-bottom: 45px; }
   .box-icon .banner-footer-item img {
@@ -1056,7 +1067,7 @@ footer {
   .product-lists .product-item:nth-child(4n) {
     margin-right: 0; }
   .product-lists .product-item .info {
-    background: #ede2cf;
+    background: #f9cdcd;
     text-align: center;
     padding: 8px 10px; }
     .product-lists .product-item .info h3 {
@@ -1076,7 +1087,7 @@ footer {
       line-height: 1.4; }
 
 #owl-product-index2 .banner-item .info {
-  background: #ede2cf;
+  background: #f9cdcd;
   text-align: center;
   padding: 8px 10px; }
 
@@ -1394,7 +1405,7 @@ footer {
   margin-top: 10px;
   margin-bottom: 10px;
   display: inline-block;
-  background: #c6ab7f;
+  background: #ea8080;
   color: #fff;
   border: 0;
   border-radius: 0;

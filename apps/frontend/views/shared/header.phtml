@@ -7,20 +7,29 @@
                     <img src="<?php echo $this->url->get('img/14/logo.svg') ?>" alt="SomeHow Store" />
                 </a>
             </h1>
+            <div class="form-search">
+                <form action="#" method="get" class="search-bar" role="search" onsubmit="" style="width: 500px;">
+                  <input type="hidden" name="type" value="product">
+                  <input type="search" name="q" value="" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." class="search-field tt-input" autocomplete="off" spellcheck="false" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Quicksand, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+                  <button type="submit" class="search-bar--submit icon-fallback-text">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                  </button>
+                </form>
+            </div>
             <div class="user-cart hidden-xs hidden-sm">
                 <?php 
                 if ($this->session->has('userName')) {
                     echo "<a href=".$this->url->get('frontend/account').">Chào ".$this->session->get("userName")."</a>";
                 }
                 else{
-                    echo "<a href=".$this->url->get('frontend/login').">Đăng nhập</a>";
+                    echo "<a href=".$this->url->get('frontend/login').">ĐĂNG NHẬP</a>";
                 }?>
-                <a href="<?php echo $this->url->get('frontend/cart') ?>" class="cart-top">
-                    Giỏ hàng<span class="cart-count">0</span>
-                    <div class="cart-top-info">
+                <a href="<?php echo $this->url->get('frontend/cart') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
+                     GIỎ HÀNG
+                    <!-- <div class="cart-top-info">
                         <p>Tổng cộng: 0</p>
-                        <span>Giỏ hàng</span>
-                    </div>
+                        <span>GIỎ HÀNG</span>
+                    </div> -->
                 </a>
             </div>
         </div>
@@ -79,7 +88,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="search-pc pull-right"><span>Tìm kiếm</span>
+            <!-- <div class="search-pc pull-right"><span>Tìm kiếm</span>
                 <div class="search-bar">
                     <div class="container">
                         <form action="http://somehow.vn/search" class="search-top">
@@ -90,7 +99,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <section class="header-new visible-xs visible-sm">
