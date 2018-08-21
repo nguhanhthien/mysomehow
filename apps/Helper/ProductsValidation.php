@@ -32,7 +32,7 @@ class ProductsValidation extends Validation
 	        'promo_price',
 	        new Alnum(
 	            [
-	            	'message' => 'Nhập phần trăm khuyến mãi (vd: 5).',
+	            	'message' => 'Giá khuyến mãi chỉ có thể là số.',
 	            ]
 	        )
 	    );

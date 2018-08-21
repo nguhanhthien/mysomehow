@@ -1,0 +1,97 @@
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <?php $this->flashSession->output() ?>
+          <h4 class="card-title""><b>Setting</b></h4>
+          <hr>
+          <form class="form-sample" method="post" enctype="multipart/form-data">
+            <p class="card-description">
+             
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                   <label class="col-sm-3 col-form-label">Title</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="title" value="<?= $setting->title ?>" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Description</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="description" value="<?= $setting->description ?>" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Web icon</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="web_icon" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Web Logo</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="web_logo" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <?php $count = 1; foreach ($setting->info as $info) : ?>
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Địa chỉ <?= $count ?></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="address[]" placeholder="" value="<?php echo $info['address'] ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Điện thoại</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="phone[]" placeholder="" value="<?php echo $info['phone'] ?>">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php $count += 1; endforeach; ?>
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Facebook</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="facebook" placeholder="" value="<?php echo $setting->social['facebook'] ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Instagram</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="instagram" placeholder="" value="<?php echo $setting->social['instagram'] ?>">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <button class="btn btn-primary" style="color: white">
+              <i class="mdi mdi-settings"></i>Cập nhật setting</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ use Phalcon\Mvc\Collection\Manager;
 use Phalcon\Db\Adapter\MongoDB\Client;
 use Phalcon\Session\Adapter\Files as Session;
 use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Http\Response\Cookies;
 
 class Application extends BaseApplication
 {
@@ -46,6 +47,18 @@ class Application extends BaseApplication
             }
         );
 
+        // Cookies
+        $di->set(
+            "cookies",
+            function () {
+                $cookies = new Cookies();
+
+                $cookies->useEncryption(false);
+
+                return $cookies;
+            }
+        );
+
         // Set up the flash session service
         $di->set(
             "flashSession",
@@ -79,7 +92,12 @@ class Application extends BaseApplication
         $loader->registerNamespaces(array(
             'Models' => '../apps/Models/',
             'Helper' => '../apps/Helper/',
-            'Phalcon' => '../apps/library/incubator/Library/Phalcon/'
+            'Phalcon' => '../apps/library/incubator/Library/Phalcon/',
+            'MongoDB\Pagination\Adapter' => '../apps/library/pagination/src/',
+        ));
+
+        $loader->registerClasses(array(
+            'ShoppingCart' => '../apps/library/cart/ShoppingCart.php'
         ));
 
         $loader->register();

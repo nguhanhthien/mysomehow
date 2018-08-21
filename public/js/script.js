@@ -193,10 +193,10 @@ $(document).ready(function(){
 		$(".over-mid").fadeOut("slow");
 	});
 
-	$('#cart .item-quantity').change(function(){
+	/*$('#cart .item-quantity').change(function(){
 		var quan = $(this).val();
 		$('#cart .item-quantity').val(quan);
-	});
+	});*/
 
 });
 

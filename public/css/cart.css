@@ -3,9 +3,9 @@
 	table.cart tr th {text-align: center;}
 	table.cart{text-align: center;width: 100%}
 	table.cart td.image,table.cart th.image{width:10% !important;}
-	table.cart td.item, table.cart td.item{width:55% !important;}
+	table.cart td.item, table.cart td.item{width:55% !important; text-align: center;}
 	table.cart td.qty, table.cart td.qty{width:10% !important;}
-	table.cart td.price, table.cart td.price{width:20% !important;}
+	table.cart td.price, table.cart td.price{width:20% !important; text-align: center;}
 	table.cart td.remove, table.cart td.remove{width:5% !important;}
 	input.item-quantity {border: 1px solid #ddd;border-radius: 3px;text-align: center;width: 80px;}
 	table.cart tr th {padding: 10px 0px;margin-bottom: 10px !important;background-color: #efefef;border: 1px solid #e9e9e9;}
@@ -21,6 +21,7 @@
 	border: 1px solid #ddd;
 	border-radius: 50%;
 	line-height: 17px;
+	padding-left: 3px;
 	}
 	.product_image img {margin: 10px 0px 10px;}
 	table.cart tbody tr.item td{border: 1px solid #ddd;}

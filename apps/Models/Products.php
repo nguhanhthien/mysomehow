@@ -11,7 +11,7 @@ class Products extends Collection
 	public $price;
 	public $total;
 	public $images;
-	public $info;
+	public $details;
 	public $created_at;
 	public $updated_at;
 

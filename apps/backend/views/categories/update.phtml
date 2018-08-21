@@ -26,8 +26,10 @@
                     <select class="form-control" name="parent_id">
                       <option value=""></option>
                       <?php foreach ($categories as $category) : ?>
-                      <option value="<?= $category->_id ?>" <?= $category->_id == $cat->parent_id ? 'selected' : null ?>>
-                        <?= ucfirst($category->_id) ?>
+                        <?php if (is_null($category->parent_id)) : ?>
+                          <option value="<?= $category->_id ?>" <?= $category->_id == $cat->parent_id ? 'selected' : null ?>>
+                          <?= $category->title ?>
+                        <?php endif; ?>
                       </option>
                     <?php endforeach; ?>
                     </select>

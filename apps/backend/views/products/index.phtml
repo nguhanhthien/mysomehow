@@ -1,3 +1,7 @@
+<?php /*echo "<pre>";
+var_dump($pages);
+echo $pages->total_pages;
+die();*/ ?>
 <div class="col-lg-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
@@ -15,29 +19,36 @@
               <th>Giá bán</th>
               <th>Số lượng</th>
               <th>Hình ảnh</th>
-              <th>Chi tiết</th>
+              <th>Status</th>
               <th>Ngày tạo</th>
               <th>Ngày update</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php $count = 1; foreach ($products as $product): ?>
+            <?php $count = 5 * $pages->current - 4; foreach ($products as $product): ?>
             <tr>
               <td><?= $count ?></td>
-              <td><?= $product->title ?></td>
+              <td width=""><?= $product->title ?></td>
               <td><?= $product->category ?></td>
               <td>
                 <div style="text-decoration: line-through;">
-                  <?= $product->price['in_price'] ?> &#273</div><br>
+                  <?= $product->price['in_price'] ?> &#273</div>
                 <div style="text-decoration: line-through;">
                   <?= $product->price['sale_price'] ?> &#273
-                </div><br>
+                </div>
                 <div style="color: red"><?= $product->price['promo_price'] ?> &#273</div> 
               </td>
               <td><?= $product->total ?></td>
-              <td><img src="<?= $this->url->get('img/test/'.$product->images) ?>" alt=""></td>
-              <td><?= $product->info ?></td>
+              
+              <!-- get images from database -->
+              <?php $links = $product->images ?>
+              <?php //echo "<pre>"; var_dump($links); die(); ?>
+              <td>
+                <img src="<?= $this->url->get('img/product/'.$links[0]['link']) ?>" alt="">
+                <img src="<?= $this->url->get('img/product/'.$links[1]['link']) ?>" alt="">
+              </td>
+              <td><?= $product->status ?></td>
               <td><?= Date("d/m/Y", $product->created_at) ?></td>
               <td><?= Date("d/m/Y", $product->updated_at) ?></td>
               <td style="font-size: 20px">
@@ -50,5 +61,26 @@
         </table>
     </div>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?= $pages->current==1 ? 'disabled' : '' ?>">
+          <a class="page-link" href="<?= $this->url->get('backend/products') ?>"><<</a>
+        </li>
+        <li class="page-item <?= $pages->current==1 ? 'disabled' : '' ?>">
+          <a class="page-link" disable href="<?= $this->url->get('backend/products/?page='.$pages->before) ?>"><</a>
+        </li>
+        <?php $total_pages = $pages->total_pages; for ($i=1; $i <= $total_pages; $i++) : ?>
+        <li class="page-item <?= $pages->current==$i ? 'disabled':'' ?>">
+          <a class="page-link" href="<?= $this->url->get('backend/products/?page='.$i) ?>"><?= $i ?></a>
+        </li>
+        <?php endfor; ?>
+        <li class="page-item <?= $pages->current==$pages->total_pages ? 'disabled' : '' ?>">
+          <a class="page-link" href="<?= $this->url->get('backend/products/?page='.$pages->next) ?>">></a>
+        </li>
+        <li class="page-item <?= $pages->current==$pages->total_pages ? 'disabled' : '' ?>">
+          <a class="page-link" href="<?= $this->url->get('backend/products/?page='.$pages->last) ?>">>></a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
