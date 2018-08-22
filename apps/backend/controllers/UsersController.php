@@ -1,7 +1,6 @@
 <?php
 namespace Mysomwhow\Backend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use Models\Users;
 
 class UsersController extends BaseController

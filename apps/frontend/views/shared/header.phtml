@@ -19,12 +19,12 @@
             <div class="user-cart hidden-xs hidden-sm">
                 <?php 
                 if ($this->session->has('userName')) {
-                    echo "<a href=".$this->url->get('frontend/account').">Chào ".$this->session->get("userName")."</a>";
+                    echo "<a href=".$this->url->get('account').">Chào ".$this->session->get("userName")."</a>";
                 }
                 else{
-                    echo "<a href=".$this->url->get('frontend/login').">ĐĂNG NHẬP</a>";
+                    echo "<a href=".$this->url->get('login').">ĐĂNG NHẬP</a>";
                 }?>
-                <a href="<?php echo $this->url->get('frontend/cart') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
+                <a href="<?php echo $this->url->get('cart') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
                      GIỎ HÀNG
                     <!-- <div class="cart-top-info">
                         <p>Tổng cộng: 0</p>
@@ -42,7 +42,7 @@
                         <a class="<?= $ControllerName == 'index' ? 'active' : null ?> " href="<?php echo $this->url->get('') ?>">Trang chủ</a>
                     </li>
                     <li class="" >
-                        <a class="<?= $ControllerName == 'collections' ? 'active' : null ?> "href="<?php echo $this->url->get('frontend/collections') ?>">Sản phẩm</a>
+                        <a class="<?= $ControllerName == 'collections' ? 'active' : null ?> "href="<?php echo $this->url->get('collections') ?>">Sản phẩm</a>
                         <div class="sub">
                             <div class="sub-container">
                                 <ul class="menu-item bg">
@@ -74,17 +74,17 @@
                         </div>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('frontend/about') ?>">Giới thiệu</a>
+                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('about') ?>">Giới thiệu</a>
                     </li>
                     <li class=" has-child" >
-                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('frontend/introduce') ?>">Hướng dẫn</a>
+                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('introduce') ?>">Hướng dẫn</a>
                         <ul class="child">
-                            <li><a href="<?php echo $this->url->get('frontend/introduce') ?>">Hướng Dẫn Mua Hàng Online</a></li>
-                            <li><a href="<?php echo $this->url->get('frontend/introduce/size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
+                            <li><a href="<?php echo $this->url->get('introduce') ?>">Hướng Dẫn Mua Hàng Online</a></li>
+                            <li><a href="<?php echo $this->url->get('size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('frontend/address') ?>">Địa chỉ cửa hàng</a>
+                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('address') ?>">Địa chỉ cửa hàng</a>
                     </li>
                 </ul>
             </div>

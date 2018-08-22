@@ -13604,7 +13604,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #212529 !important; }
 
 .text-muted, .preview-list .preview-item .preview-item-content p .content-category {
-  color: #c2c2c2 !important; }
+  color: #fff !important; }
 
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important; }
@@ -13937,7 +13937,7 @@ input:focus {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 63px);
-  background: #ffffff;
+  background: #b3b3b3 ;
   font-family: "Poppins", sans-serif;
   padding: 0;
   width: 255px;
@@ -13947,6 +13947,7 @@ input:focus {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease; }
   .sidebar .nav {
+
     overflow: hidden;
     flex-wrap: nowrap;
     flex-direction: column; }
@@ -13954,7 +13955,7 @@ input:focus {
       z-index: 999; }
     .sidebar .nav .nav-item .collapse.show,
     .sidebar .nav .nav-item .collapsing {
-      background: #fafbfc; }
+      background: #cecece; }
     .sidebar .nav .nav-item .nav-link {
       align-items: center;
       display: flex;
@@ -13986,7 +13987,7 @@ input:focus {
           vertical-align: middle;
           color: rgba(74, 74, 74, 0.5); }
       .sidebar .nav .nav-item .nav-link[aria-expanded="true"] {
-        background: #fafbfc; }
+        background: #cecece; }
         .sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow {
           -moz-transform: rotate(90deg);
           -o-transform: rotate(90deg);
@@ -14013,7 +14014,7 @@ input:focus {
       .sidebar .nav .nav-item .nav-link:hover {
         color: #3d3d3d; }
     .sidebar .nav .nav-item.active > .nav-link {
-      color: #308ee0; }
+      background: #cecece; }
       .sidebar .nav .nav-item.active > .nav-link .menu-title,
       .sidebar .nav .nav-item.active > .nav-link i {
         color: inherit; }
@@ -14044,7 +14045,7 @@ input:focus {
           .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper .text-wrapper .designation {
             margin-right: 3px; }
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-profile) > .nav-link {
-      background: #fafbfc;
+      background: #bfbfbf;
       color: #4a4a4a; }
     .sidebar .nav.sub-menu {
       margin-bottom: 0;
@@ -14138,7 +14139,7 @@ input:focus {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #ffffff;
+    background: #cecece;
     width: 255px;
     height: 63px; }
     .sidebar-dark .navbar.default-layout .navbar-brand-wrapper {

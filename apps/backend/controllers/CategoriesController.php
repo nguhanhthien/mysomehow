@@ -8,6 +8,7 @@ class CategoriesController extends BaseController
 {
     public function initialize()
     {
+        parent::initialize();
         $categories = Categories::find();
         $this->view->setVar('categories', $categories);
     }

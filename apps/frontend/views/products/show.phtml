@@ -33,7 +33,7 @@
       <div class="product-right">
         <h3><?= $product->title ?></h3>
         <div class="product-price" id="price-preview2">
-          <span><?= $product->price['promo_price'] ?>₫</span>
+          <span><?= number_format($product->price['promo_price']) ?>₫</span>
         </div>
         <form id="add-item-form" action="" method="post" class="variants clearfix">
           <div class="select clearfix" style="display:none;">
@@ -98,6 +98,10 @@
             </div>
           </div>
           <script>
+            /*add class selected for option*/
+            $('.option-1 li:eq(0)').addClass('selected');
+            $('.option-2 li:eq(0)').addClass('selected');
+            
             $('.option-1>li>a').click(function(){
             	if(!$(this).hasClass('soldout')){
             		$('.option-1 li ').removeClass('selected');
@@ -147,7 +151,7 @@
             </select>
           </div>
           <div class="size_intro">
-            <a target="_blank" href="<?= $this->url->get('frontend/introduce/size') ?>">
+            <a target="_blank" href="<?= $this->url->get('size') ?>">
               <div class="icon-blue">
                 <img src="<?= $this->url->get('img/14/icon-fit-analytics.svg') ?>" alt="">
               </div>

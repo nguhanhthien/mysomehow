@@ -60,13 +60,13 @@
                      <tr class="item">
                         <td class="image">
                            <div class="product_image">
-                              <a href="<?= $this->url->get('frontend/products/show/'.$product['id']) ?>">
+                              <a href="<?= $this->url->get('products/'.$product['id']) ?>">
                               <img src="<?= $this->url->get('img/product/'.$product['img']) ?>" />
                               </a>
                            </div>
                         </td>
                         <td class="item">
-                           <a href="<?= $this->url->get('frontend/products/show/'.$product['id']) ?>">
+                           <a href="<?= $this->url->get('products/'.$product['id']) ?>">
                            <strong><?= $product['name'] ?></strong>
                            </a>
                            <p class="variant_title"><?= $product['color'] ?> / <?= $product['size'] ?></p>

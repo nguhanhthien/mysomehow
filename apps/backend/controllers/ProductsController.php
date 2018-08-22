@@ -12,6 +12,7 @@ class ProductsController extends BaseController
     public function initialize()
     {
         // get info category
+        parent::initialize();
         $categories = Categories::find();
         $this->view->setVar('categories', $categories);
     }

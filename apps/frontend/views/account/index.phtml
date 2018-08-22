@@ -1,7 +1,7 @@
 <div id="layout-page" class="pd40">
 	<div  class="container">
 		<div class="main-title2 text-center mb30">
-			<h1>Tài khoản của bạn <a class="logout" href="<?= $this->url->get('frontend/account/logout') ?>"><span class="fa fa-sign-out"></span>Thoát</a></h1>
+			<h1>Tài khoản của bạn <a class="logout" href="<?= $this->url->get('account/logout') ?>"><span class="fa fa-sign-out"></span>Thoát</a></h1>
 		</div>
 		<div class="col-md-8 col-md-offset-2">
 			<?= $this->flashSession->output() ?>
@@ -17,8 +17,8 @@
 				<p></p>
 				<p> </p>
 				<p></p>
-				<a id="view_address" href="<?= $this->url->get('frontend/account/update') ?>">Chỉnh sửa thông tin</a><br><br>
-				<a id="view_address" href="<?= $this->url->get('frontend/account/resetPass') ?>">Chỉnh sửa mật khẩu</a>
+				<a id="view_address" href="<?= $this->url->get('account/update') ?>">Chỉnh sửa thông tin</a><br><br>
+				<a id="view_address" href="<?= $this->url->get('account/resetPass') ?>">Chỉnh sửa mật khẩu</a>
 			</div>
 		</div>
 	</div>

@@ -20,7 +20,7 @@ class LoginController extends \Phalcon\Mvc\Controller
             if ($user && $this->security->checkHash($password, $user->password)) {
                 $this->session->set("userName", $user->display_name);
                 $this->session->set("email", $user->email);
-                return $this->response->redirect('frontend/account');
+                return $this->response->redirect('account');
             }else{
                 $loginError = "Tên tài khoản hoặc mật khẩu không chính xác.";
                 $this->view->setVar('loginError', $loginError);
@@ -71,7 +71,7 @@ class LoginController extends \Phalcon\Mvc\Controller
                     // đăng ký thành công
                     $this->session->set("userName", $user->display_name);
                     $this->session->set("email", $user->email);
-                    return $this->response->redirect('frontend/account');
+                    return $this->response->redirect('account');
                 }
             }
         }

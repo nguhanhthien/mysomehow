@@ -152,6 +152,80 @@ class Application extends BaseApplication
             ));
 
             // router frontend
+            $router->add('/about', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'about',
+                'action' => 'index',
+            ));
+            $router->add('/introduce', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'introduce',
+                'action' => 'index',
+            ));
+            $router->add('/size', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'introduce',
+                'action' => 'size',
+            ));
+            $router->add('/address', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'address',
+                'action' => 'index',
+            ));
+            $router->add('/products/:params', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'show',
+                'params' => 1,
+            ));
+            $router->add('/login', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'login',
+                'action' => 'index',
+            ));
+            $router->add('/cart', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'cart',
+                'action' => 'index',
+            ));
+            $router->add('/checkout', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'checkout',
+                'action' => 'index',
+            ));
+            $router->add('/checkout/:action/:params', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'checkout',
+                'action' => 1,
+                'params' => 2,
+            ));
+            $router->add('/account', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'account',
+                'action' => 'index',
+            ));
+            $router->add('/account/:action', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'account',
+                'action' => 1,
+            ));
+            $router->add('/register', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'login',
+                'action' => 'register',
+            ));
 
             // Mongodb Control Panel
             $router->add('/rockmongodb', [

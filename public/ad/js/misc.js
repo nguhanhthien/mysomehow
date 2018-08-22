@@ -19,13 +19,13 @@
         }
       } else {
         //for other url
-        if ($this.attr('href').indexOf(current) !== -1) {
-          $(this).parents('.nav-item').last().addClass('active');
-          if ($(this).parents('.sub-menu').length) {
-            $(this).closest('.collapse').addClass('show');
-            $(this).addClass('active');
-          }
-        }
+        /*if ($this.attr('href').indexOf(current) !== -1) {
+          // $(this).parents('.nav-item').last().addClass('active');
+          // if ($(this).parents('.sub-menu').length) {
+          //   $(this).closest('.collapse').addClass('show');
+          //   $(this).addClass('active');
+          // }
+        }*/
       }
     })
 

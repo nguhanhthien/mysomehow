@@ -93,7 +93,7 @@ function funcFormOnSubmit(e) {
     if ($(formData).tagName() != 'form')
         formData += ' :input';
 
-    $.ajax({
+    /*$.ajax({
         type: 'GET',
         url: window.location.origin + window.location.pathname + '?' + $(formData).serialize() + encodeURI('&form_name=' + formId),
         success: function(html) {
@@ -118,17 +118,6 @@ function funcFormOnSubmit(e) {
                     }
                 }
 
-
-
-                $("#div_country_not_vietnam").hide();
-                var is_vietnam_location = $("#is_vietnam_location").val();
-                if (is_vietnam_location && is_vietnam_location == "true") {
-                    $("#div_location_country_not_vietnam").hide();
-                } else {
-                    $("#div_location_country_not_vietnam").show();
-                }
-
-
                 $('body').attr('src', $(html).attr('src'));
                 $(element).find('button:submit').removeClass('btn-loading');
 
@@ -144,7 +133,7 @@ function funcFormOnSubmit(e) {
         }
     }).fail(function() {
         $(element).find('button:submit').removeClass('btn-loading');
-    });
+    });*/
 
     return false;
 };

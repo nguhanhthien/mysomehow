@@ -26,7 +26,7 @@ class AccountController extends Controller
 	    			$user->phone = $this->request->getPost('phone');
 	    			$user->save();
 	    			$this->flashSession->success('Cập nhật thông tin thành công!');
-	    			$this->response->redirect('frontend/account');
+	    			$this->response->redirect('account');
 	    		}
     		}
     	}
@@ -55,14 +55,14 @@ class AccountController extends Controller
 	    					$user->password = $this->security->hash($newpassword);
 	    					$user->save();
 	    					$this->flashSession->success('Đổi mật khẩu thành công!');
-	    					$this->response->redirect('frontend/account');
+	    					$this->response->redirect('account');
 	    				}else{
 	    					$this->flashSession->error('Nhập lại mật khẩu không trùng khớp!');
-	    					$this->response->redirect('frontend/account/resetPass');
+	    					$this->response->redirect('account/resetPass');
 	    				}
 	    			}else{
 	    				$this->flashSession->error('Thông tin mật khẩu cũ không chính xác!');
-	    				$this->response->redirect('frontend/account/resetPass');
+	    				$this->response->redirect('account/resetPass');
 	    			}
 	    		}
     		}

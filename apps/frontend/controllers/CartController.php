@@ -37,11 +37,11 @@ class CartController extends Controller
 					$i += 1;
 				}
 				if($this->cart->updateMulti($product_cart) != false){
-					$this->response->redirect('frontend/cart');
+					$this->response->redirect('cart');
 				}
 			}elseif (isset($_POST['checkout'])) {
 
-				$this->response->redirect('frontend/checkout');
+				$this->response->redirect('checkout');
 			}
 		}
     }
@@ -55,13 +55,13 @@ class CartController extends Controller
     			if ($rowId == $cart['rowId']) {
     				// delete product
     				if ($this->cart->removeProduct($rowId) != false) {
-    					$this->response->redirect('frontend/cart');
+    					$this->response->redirect('cart');
     				}
     			}
     		}
     	}else{
     		$this->flashSession->warning('Không tìm thấy sản phẩm này');
-    		$this->response->redirect('frontend/cart');
+    		$this->response->redirect('cart');
     	}
     }
 }

@@ -2,10 +2,9 @@
 
 namespace Mysomwhow\Backend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use Models\Setting;
 
-class SettingController extends Controller
+class SettingController extends BaseController
 {
     public function indexAction()
     {

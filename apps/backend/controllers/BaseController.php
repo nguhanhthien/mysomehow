@@ -19,6 +19,11 @@ class BaseController extends Controller
     		//header('Location:'.$this->url->get('backend/login'));
     		$this->response->redirect('backend/login');
     	}
+
+        $controller = $this->router->getControllerName();
+        $action = $this->router->getActionName();
+        $this->view->setVar('controller', $controller);
+        $this->view->setVar('action', $action);
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 namespace Mysomwhow\Backend\Controllers;
 
-use Phalcon\Mvc\Controller;
+use Phalcon\mvc\Controller;
 use Models\Admin;
 
 class LoginController extends Controller
@@ -17,12 +17,12 @@ class LoginController extends Controller
     	$newAdmin->roler 		= 'roots';
     	$newAdmin->created_at = time();
     	$newAdmin->updated_at = time();
-    	$newAdmin->save();	*/
+    	$newAdmin->save();	*/   
 
         // kiểm tra nếu login rồi thì không cho login nữa
         if ($this->session->get('admin') && ($this->router->getControllerName() == 'login')) {
             $this->response->redirect('backend');
-        }    
+        }
 
         if ($this->request->isPost()) {
             // lay noi dung login
