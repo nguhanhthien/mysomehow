@@ -152,6 +152,12 @@ class Application extends BaseApplication
             ));
 
             // router frontend
+            $router->add('/notfound', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'index',
+                'action' => 'notfound',
+            ));
             $router->add('/about', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
@@ -176,6 +182,24 @@ class Application extends BaseApplication
                 'controller' => 'address',
                 'action' => 'index',
             ));
+            $router->add('/collections', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'index',
+            ));
+            $router->add('/collections/san-pham-moi', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'new',
+            ));
+            $router->add('/collections/san-pham-ban-chay', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'seller',
+            ));
             $router->add('/products/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
@@ -195,11 +219,12 @@ class Application extends BaseApplication
                 'controller' => 'cart',
                 'action' => 'index',
             ));
-            $router->add('/checkout', array(
+            $router->add('/checkout/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'checkout',
                 'action' => 'index',
+                'params' => 1
             ));
             $router->add('/checkout/:action/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',

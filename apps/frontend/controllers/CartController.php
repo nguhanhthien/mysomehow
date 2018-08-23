@@ -40,7 +40,7 @@ class CartController extends Controller
 					$this->response->redirect('cart');
 				}
 			}elseif (isset($_POST['checkout'])) {
-
+			
 				$this->response->redirect('checkout');
 			}
 		}

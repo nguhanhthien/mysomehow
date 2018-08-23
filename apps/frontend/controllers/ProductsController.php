@@ -53,10 +53,10 @@ class ProductsController extends Controller
                         if ($this->cart->add($product_cart) != false) {
 
                             $this->flashSession->success("Thêm sản phẩm vào giỏ hàng thành công!");
-                            $this->response->redirect('frontend/cart');
+                            $this->response->redirect('cart');
                         }
                     }elseif (isset($_POST['buy'])) {
-                        $this->response->redirect('frontend/cart');
+                        $this->response->redirect('cart');
                     }
                 }
             }else{

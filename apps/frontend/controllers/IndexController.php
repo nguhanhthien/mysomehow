@@ -13,5 +13,10 @@ class IndexController extends Controller
     	$this->view->setVar('products', $products);
     }
 
+    public function notfoundAction()
+    {
+    	
+    }
+
 }
 

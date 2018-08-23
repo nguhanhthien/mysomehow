@@ -11,8 +11,6 @@ class Order extends Collection
 	public $customer_phone;
 	public $customer_address;
 	public $product;
-	public $product_price;
-	public $total_shipping;
 	public $total_price;
 	public $created_at;
 	public $updated_at;

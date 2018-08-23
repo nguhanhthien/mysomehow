@@ -1,4 +1,4 @@
-<?php if ($cart->getTotalItems() == 0) : ?>
+<?php if (!$cart->getContent()) : ?>
 <div id="cart">
 	<div class="fix-breadcrumb " >
 	<ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">

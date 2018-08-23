@@ -11,7 +11,7 @@
     <script src='<?= $this->url->get('js/jquery.min.js') ?>' type='text/javascript'></script>
     <script src='<?= $this->url->get('js/jquery.validate.js') ?>' type='text/javascript'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no">
-    <script type="text/javascript" src="<?= $this->url->get('js/checkout.js') ?>"></script>
+    <script type="text/javascript" src=""></script> 
     <script type = "text/javascript" >
       var toggleShowOrderSummary = false;
       $(document).ready(function() {
@@ -122,18 +122,18 @@
                         <td class="total-line-name">Tạm tính</td>
                         <td class="total-line-price">
                           <span class="order-summary-emphasis" data-checkout-subtotal-price-target="<?php echo $total_price ?>">
-                         <?php echo $total_price ?>₫
+                         <?php echo number_format($total_price) ?>₫
                           </span>
                         </td>
                       </tr>
-                      <tr class="total-line total-line-shipping">
+                      <!-- <tr class="total-line total-line-shipping">
                         <td class="total-line-name">Phí vận chuyển</td>
                         <td class="total-line-price">
                           <span class="order-summary-emphasis" data-checkout-total-shipping-target="0">
                           —
                           </span>
                         </td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                     <tfoot class="total-line-table-footer">
                       <tr class="total-line">
@@ -142,8 +142,8 @@
                         </td>
                         <td class="total-line-name payment-due">
                           <span class="payment-due-currency">VND</span>
-                          <span class="payment-due-price" data-checkout-payment-due-target="147000000">
-                          1,470,000₫
+                          <span class="payment-due-price" data-checkout-payment-due-target="<?php echo $total_price ?>">
+                          <?php echo number_format($total_price) ?>₫
                           </span>
                         </td>
                       </tr>
@@ -175,75 +175,81 @@
                   <div class="section-header">
                     <h2 class="section-title">Thông tin giao hàng</h2>
                   </div>
-                  <div class="section-content section-customer-information ">
                     <p class="section-content-text">
                       Bạn đã có tài khoản?
                       <a href="/account/login?urlredirect=%2Fcheckouts%2F7e4981d245d94b1ab0bfa41f6276dadd%3Fstep%3D1">Đăng nhập</a>
-                    </p>
+                    </p><br>
+                    <form id="" class="field" accept-charset="UTF-8" method="post">
+                      <div class="section-content section-customer-information ">
                     <div class="fieldset">
-                      <div class="field field-required  ">
+
+                      <!-- print validation -->
+                      <div class="field field-required <?= isset($errors['billing_name']) ? 'field-error' : null ?>">
                         <div class="field-input-wrapper">
                           <label class="field-label" for="billing_address_full_name">Họ và tên</label>
-                          <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_full_name" name="billing_address[full_name]" value="" />
+                          <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_full_name" name="billing_name" value="<?= @$params['billing_name'] ?>" />
                         </div>
+                        <p class="field-message field-message-error"><?= isset($errors['billing_name']) ? $errors['billing_name'] : null ?></p>
                       </div>
-                      <div class="field  field-two-thirds  ">
+                      <div class="field  field-two-thirds <?= isset($errors['billing_email']) ? 'field-error' : null ?>">
                         <div class="field-input-wrapper">
                           <label class="field-label" for="checkout_user_email">Email</label>
-                          <input placeholder="Email" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="email" id="checkout_user_email" name="checkout_user[email]" value="" />
+                          <input placeholder="Email" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="email" id="checkout_user_email" name="billing_email" value="<?= @$params['billing_email'] ?>" />
                         </div>
+                        <p class="field-message field-message-error"><?= isset($errors['billing_email']) ? $errors['billing_email'] : null ?></p>
                       </div>
-                      <div class="field field-required field-third  ">
+                      <div class="field field-required field-third  <?= isset($errors['billing_phone']) ? 'field-error' : null ?>">
                         <div class="field-input-wrapper">
                           <label class="field-label" for="billing_address_phone">Số điện thoại</label>
-                          <input placeholder="Số điện thoại" autocapitalize="off" spellcheck="false" class="field-input" size="30" maxlength="11" type="tel" id="billing_address_phone" name="billing_address[phone]" value="" />
+                          <input placeholder="Số điện thoại" autocapitalize="off" spellcheck="false" class="field-input" size="30" maxlength="11" type="tel" id="billing_address_phone" name="billing_phone" value="<?= @$params['billing_phone'] ?>" />
                         </div>
+                        <p class="field-message field-message-error"><?= isset($errors['billing_phone']) ? $errors['billing_phone'] : null ?></p>
                       </div>
-                      <div class="field field-required  ">
+                      <div class="field field-required <?= isset($errors['billing_address']) ? 'field-error' : null ?>">
                         <div class="field-input-wrapper">
                           <label class="field-label" for="billing_address_address1">Địa chỉ</label>
-                          <input placeholder="Địa chỉ" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_address1" name="billing_address[address1]" value="" />
+                          <input placeholder="Địa chỉ" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_address1" name="billing_address" value="<?= @$params['billing_address'] ?>" />
                         </div>
+                        <p class="field-message field-message-error"><?= isset($errors['billing_address']) ? $errors['billing_address'] : null ?></p>
                       </div>
                     </div>
                   </div>
                   <div class="section-content">
                     <div class="fieldset">
-                      <form id="form_update_shipping_method" class="field" accept-charset="UTF-8" method="post">
-                        <input name="utf8" type="hidden" value="✓">
-                        <div class="content-box mt0">
-                          <div class="radio-wrapper content-box-row">
-                            <label class="radio-label">
-                              <div class="radio-input">
-                                <input type="radio" id="customer_pick_at_location_false" name="customer_pick_at_location" class="input-radio" value="false" checked>
-                              </div>
-                              <span class="radio-label-primary">Giao tận nơi</span>
-                            </label>
-                          </div>
-                          <div id="form_update_location_customer_shipping" class="radio-wrapper content-box-row content-box-row-padding content-box-row-secondary " for="customer_pick_at_location_false">
-                            <input name="utf8" type="hidden" value="✓">
-                            <div class="field field-show-floating-label  field-half ">
-                              <div class="field-input-wrapper field-input-wrapper-select">
-                                <label class="field-label" for="customer_shipping_province"> Tỉnh / thành  </label>
-                                <select class="field-input" id="customer_shipping_province" name="customer_shipping_province">
-                                  <option data-code="null" value="null" selected>  Chọn tỉnh / thành </option>
-                                  <?php foreach ($provinces as $province) : ?>
-                                  <option data-code="<?= $province->_id ?>" value="<?= $province->ref_id ?>" ><?= $province->full ?></option>
-                                  <?php endforeach; ?>
-                                </select>
-                              </div>
+                      <input name="utf8" type="hidden" value="✓">
+                      <div class="content-box mt0">
+                        <div class="radio-wrapper content-box-row">
+                          <label class="radio-label">
+                            <div class="radio-input">
+                              <input type="radio" id="customer_pick_at_location_false" name="customer_pick_at_location" class="input-radio" value="false" checked>
                             </div>
-                            <div class="field field-show-floating-label  field-half ">
-                              <div class="field-input-wrapper field-input-wrapper-select">
-                                <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
-                                <select class="field-input" id="customer_shipping_district" name="customer_shipping_district">
-                                  <option data-code="null" value="null" selected>Chọn quận / huyện</option>
-                                </select>
-                              </div>
+                            <span class="radio-label-primary">Giao tận nơi</span>
+                          </label>
+                        </div>
+                        <div id="form_update_location_customer_shipping" class="radio-wrapper content-box-row content-box-row-padding content-box-row-secondary " for="customer_pick_at_location_false">
+                          <input name="utf8" type="hidden" value="✓">
+                          <div class="field field-show-floating-label  field-half <?= isset($errors['customer_shipping_province']) ? 'field-error' : null ?>">
+                            <div class="field-input-wrapper field-input-wrapper-select">
+                              <label class="field-label" for="customer_shipping_province"> Tỉnh / thành  </label>
+                              <select class="field-input" id="customer_shipping_province" name="customer_shipping_province">
+                                <option data-code="" value="" selected>  Chọn tỉnh / thành </option>
+                                <?php foreach ($provinces as $province) : ?>
+                                <option data-code="<?= $province->_id ?>" value="<?= $province->ref_id ?>" ><?= $province->full ?></option>
+                                <?php endforeach; ?>
+                              </select>
+                            </div>
+                            <p class="field-message field-message-error"><?= isset($errors['customer_shipping_province']) ? $errors['customer_shipping_province'] : null ?></p>
+                          </div>
+                          <div class="field field-show-floating-label  field-half ">
+                            <div class="field-input-wrapper field-input-wrapper-select">
+                              <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
+                              <select class="field-input" id="customer_shipping_district" name="customer_shipping_district">
+                                <option data-code="" value="" selected>Chọn quận / huyện</option>
+                              </select>
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </div>                    
                     </div>
                   </div>
                   <div id="change_pick_location_or_shipping">
@@ -254,25 +260,25 @@
                         <h2 class="section-title">Phương thức vận chuyển</h2>
                       </div>
                       <div class="section-content">
-                        <div class="content-box  blank-slate" id="blank-slate">
+                        <!-- <div class="content-box  blank-slate" id="blank-slate">
                           <i class="blank-slate-icon icon icon-closed-box "></i>
                           <p>Vui lòng chọn tỉnh / thành để có danh sách phương thức vận chuyển.</p>
-                        </div>
-                        <!-- <div class="content-box" id="shipping_rate" style="display: none;">
+                        </div> -->
+                        <div class="content-box" id="shipping_rate" style="">
                           <div class="content-box-row">
                             <div class="radio-wrapper">
-                              <label class="radio-label" for="shipping_rate_id_592112">
+                              <label class="radio-label" for="shipping_rate_id">
                                 <div class="radio-input">
-                                  <input id="shipping_rate_id_592112" class="input-radio" type="radio" name="shipping_rate_id" value="592112" checked />
+                                  <input id="shipping_rate_id" class="input-radio" type="radio" name="shipping_rate_id" value="" checked />
                                 </div>
-                                <span class="radio-label-primary">Tất Cả Tỉnh Thành</span>
-                                <span class="radio-accessory content-box-emphasis"><span id="price-shipping">0</span>₫
-                                </span>
+                                <span class="radio-label-primary" id="all-city">Phí vận chuyển sẽ được tính riêng sau khi hoàn tất đơn hàng</span>
+                                <!-- <span class="radio-accessory content-box-emphasis"><span id="price-shipping"></span>₫
+                                </span> -->
                               </label>
                             </div>
                           </div>
                         </div> 
-                      </div> -->
+                      </div> 
                     </div>
                     <div id="section-payment-method" class="section">
                       <div class="section-header">
@@ -283,7 +289,7 @@
                           <div class="radio-wrapper content-box-row">
                             <label class="radio-label" for="payment_method_id_54463">
                               <div class="radio-input">
-                                <input id="payment_method_id_54463" class="input-radio" name="payment_method_id" type="radio" value="54463" checked />
+                                <input id="payment_method_id_54463" class="input-radio" name="payment_method_id" type="radio" value="" checked />
                               </div>
                               <span class="radio-label-primary">Thanh toán khi giao hàng (COD)</span>
                             </label>
@@ -301,7 +307,6 @@
                 </div>
               </div>
               <div class="step-footer">
-                <form id="form_next_step" accept-charset="UTF-8" method="post">
                   <input name="utf8" type="hidden" value="✓">
                   <button type="submit" class="step-footer-continue-btn btn">
                   <span class="btn-content">Hoàn tất đơn hàng</span>
@@ -331,15 +336,7 @@
             success: function (data) {
               $('#customer_shipping_district').html(data); //customer_shipping_district
             },
-          });/*
-          if (path == null) {
-            $('#blank-slate').show();
-            $('#shipping_rate').hide();
-          }else if (path == 'ho-chi-minh' || ) {
-            $('#blank-slate').hide();
-            $('#shipping_rate').show();
-            $('#price-shipping').text(0);
-          }*/
+          });
         });
       })
     </script>
