@@ -1,15 +1,14 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use Models\Users;
 
-class AccountController extends Controller
+class AccountController extends BaseController
 {
 
     public function indexAction()
     {
-
+    	
     }
 
     public function updateAction()
@@ -58,11 +57,11 @@ class AccountController extends Controller
 	    					$this->response->redirect('account');
 	    				}else{
 	    					$this->flashSession->error('Nhập lại mật khẩu không trùng khớp!');
-	    					$this->response->redirect('account/resetPass');
+	    					$this->response->redirect('doi-mat-khau');
 	    				}
 	    			}else{
 	    				$this->flashSession->error('Thông tin mật khẩu cũ không chính xác!');
-	    				$this->response->redirect('account/resetPass');
+	    				$this->response->redirect('doi-mat-khau');
 	    			}
 	    		}
     		}

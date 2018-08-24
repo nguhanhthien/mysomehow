@@ -5,6 +5,7 @@ namespace Mysomwhow\Backend\Controllers;
 use Models\Products;
 use Models\Categories;
 use Helper\ProductsValidation;
+use Helper\Pagination;
 use Phalcon\Paginator\Adapter\Model as PaginatorModel; //Paginator
 
 class ProductsController extends BaseController
@@ -29,8 +30,7 @@ class ProductsController extends BaseController
         }
 
         $limit = 5;
-
-        $totalPages = ceil($total / $limit);
+        $pagination = Pagination::add($currentPage, $total, $limit);
 
         // The data set to paginate
         $products = Products::find([
@@ -38,30 +38,8 @@ class ProductsController extends BaseController
             'skip'  => ($currentPage - 1) * $limit,
         ]);
 
-        //Fix next
-        if ($currentPage < $totalPages) {
-            $next = $currentPage + 1;
-        } else {
-            $next = $totalPages;
-        }
-
-        $page->next = $next;
-
-        if ($currentPage > 1) {
-            $before = $currentPage - 1;
-        } else {
-            $before = 1;
-        }
-
-        $page->first = 1;
-        $page->before = $before;
-        $page->current = $currentPage;
-        $page->last = $totalPages;
-        $page->total_pages = $totalPages;
-        $page->total_items = $total;
-
         $this->view->setVar('products', $products);
-        $this->view->setVar('pages', $page);
+        $this->view->setVar('pages', $pagination);
     }
 
     public function addAction()

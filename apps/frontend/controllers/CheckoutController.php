@@ -1,14 +1,13 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\View;
 use ShoppingCart;
 use Models\Location;
 use Models\Order;
 use Helper\CheckoutValidation;
 
-class CheckoutController extends Controller
+class CheckoutController extends BaseController
 {
 	public function initialize()
 	{
@@ -74,7 +73,7 @@ class CheckoutController extends Controller
 				$this->cart->destroy();
 
 				$order->save();
-				$this->response->redirect('checkout/success');
+				$this->response->redirect('mua-hang/success');
 			}
 		}
 

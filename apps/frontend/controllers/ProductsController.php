@@ -1,16 +1,72 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use Models\Products;
+use Helper\Pagination;
 use ShoppingCart;
 
-class ProductsController extends Controller
+class ProductsController extends BaseController
 {
 
     public function indexAction()
     {
-        
+        //pagination product
+        $totalItems = Products::count();
+
+        // Get current page
+        if ($this->request->get('page')) {
+            $currentPage = $this->request->get('page');
+        }else{
+            $currentPage = 1;
+        }
+
+        $limit = 8;
+        $pagination = Pagination::add($currentPage, $totalItems, $limit);
+
+        // Get sort_by from url
+        if ($this->request->get('sort_by')) {
+            $sort_by = $this->request->get('sort_by');
+        }else{
+            $sort_by = null;
+        }
+
+        // check sort by
+        switch ($sort_by) {
+            case 'null':
+                $input = null;
+                break;
+            case 'created-descending':
+                $input = ['created_at' => -1];
+                break;
+            case 'best-selling':
+                $input = ['sold' => -1];
+                break;
+            case 'price-ascending':
+                $input = ['price' => 1];
+                break;
+            case 'price-descending':
+                $input = ['price' => -1];
+                break;
+            case 'title-ascending':
+                $input = ['_id' => 1];
+                break;
+            case 'title-descending':
+                $input = ['_id' => -1];
+                break;
+            default:
+                $input = null;
+                break;
+        }
+
+        // find products for input
+        $products = Products::find([
+            'sort' => $input,
+            'limit' => $limit,
+            'skip' => ($currentPage - 1) * $limit,
+        ]);
+        $this->view->setVar('products', $products);
+        $this->view->setVar('pages', $pagination);
+        $this->view->setVar('sort_by', $sort_by);
     }
 
     public function newAction()
@@ -53,10 +109,10 @@ class ProductsController extends Controller
                         if ($this->cart->add($product_cart) != false) {
 
                             $this->flashSession->success("Thêm sản phẩm vào giỏ hàng thành công!");
-                            $this->response->redirect('cart');
+                            $this->response->redirect('gio-hang');
                         }
                     }elseif (isset($_POST['buy'])) {
-                        $this->response->redirect('cart');
+                        $this->response->redirect('gio-hang');
                     }
                 }
             }else{

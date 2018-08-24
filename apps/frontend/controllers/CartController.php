@@ -1,10 +1,9 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Phalcon\Mvc\Controller;
 use ShoppingCart;
 
-class CartController extends Controller
+class CartController extends BaseController
 {
 	public function initialize()
 	{
@@ -37,11 +36,11 @@ class CartController extends Controller
 					$i += 1;
 				}
 				if($this->cart->updateMulti($product_cart) != false){
-					$this->response->redirect('cart');
+					$this->response->redirect('gio-hang');
 				}
 			}elseif (isset($_POST['checkout'])) {
 			
-				$this->response->redirect('checkout');
+				$this->response->redirect('mua-hang');
 			}
 		}
     }
@@ -55,13 +54,13 @@ class CartController extends Controller
     			if ($rowId == $cart['rowId']) {
     				// delete product
     				if ($this->cart->removeProduct($rowId) != false) {
-    					$this->response->redirect('cart');
+    					$this->response->redirect('gio-hang');
     				}
     			}
     		}
     	}else{
     		$this->flashSession->warning('Không tìm thấy sản phẩm này');
-    		$this->response->redirect('cart');
+    		$this->response->redirect('gio-hang');
     	}
     }
 }

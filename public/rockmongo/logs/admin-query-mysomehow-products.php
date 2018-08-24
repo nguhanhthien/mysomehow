@@ -197,3 +197,69 @@ array (
   'command' => 'remove',
 )
 ================
+2018-08-24 03:52:41
+array (
+  'db' => 'mysomehow',
+  'collection' => 'products',
+  'action' => 'collection.index',
+  'format' => 'json',
+  'criteria' => '{
+\'categories\':\'quan-the-thao\'
+}',
+  'newobj' => '{
+	\'$set\': {
+		//your attributes
+	}
+}',
+  'field' => 
+  array (
+    0 => '_id',
+    1 => '',
+    2 => '',
+    3 => '',
+  ),
+  'order' => 
+  array (
+    0 => 'desc',
+    1 => 'asc',
+    2 => 'asc',
+    3 => 'asc',
+  ),
+  'limit' => '0',
+  'pagesize' => '10',
+  'command' => 'findAll',
+)
+================
+2018-08-24 06:20:06
+array (
+  'db' => 'mysomehow',
+  'collection' => 'products',
+  'action' => 'collection.index',
+  'format' => 'json',
+  'criteria' => '{
+	\'title\':\'BOXER A.MANI\'
+}',
+  'newobj' => '{
+	\'$set\': {
+		//your attributes
+	}
+}',
+  'field' => 
+  array (
+    0 => '_id',
+    1 => '',
+    2 => '',
+    3 => '',
+  ),
+  'order' => 
+  array (
+    0 => 'desc',
+    1 => 'asc',
+    2 => 'asc',
+    3 => 'asc',
+  ),
+  'limit' => '0',
+  'pagesize' => '10',
+  'command' => 'findAll',
+)
+================

@@ -1,9 +1,7 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Phalcon\Mvc\Controller;
-
-class AddressController extends Controller
+class AddressController extends BaseController
 {
 
     public function indexAction()

@@ -50,7 +50,15 @@ class CategoriesController extends BaseController
                 
                 // check submit form
                 if ($this->request->isPost()) {
-                    echo "string";die();
+                    $params  = $this->request->getPost();
+                    $cat->_id = \Helper::getSlug(trim($params['title']));          
+                    $cat->title = $params['title'];
+                    $cat->parent_id = $params['parent_id'] != null ? trim($params['parent_id']) : null;
+                    $cat->updated_at = time();
+
+                    $cat->save();
+                    $this->flashSession->success('Cập nhật danh mục thành công');
+                    $this->response->redirect('backend/categories');
                 }
             }
         }

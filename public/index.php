@@ -158,25 +158,25 @@ class Application extends BaseApplication
                 'controller' => 'index',
                 'action' => 'notfound',
             ));
-            $router->add('/about', array(
+            $router->add('/gioi-thieu', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'about',
                 'action' => 'index',
             ));
-            $router->add('/introduce', array(
+            $router->add('/huong-dan-mua-hang-online', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'introduce',
                 'action' => 'index',
             ));
-            $router->add('/size', array(
+            $router->add('/huong-dan-lua-chon-size', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'introduce',
                 'action' => 'size',
             ));
-            $router->add('/address', array(
+            $router->add('/he-thong-cua-hang', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'address',
@@ -200,6 +200,13 @@ class Application extends BaseApplication
                 'controller' => 'products',
                 'action' => 'seller',
             ));
+            $router->add('/collections/:params', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'index',
+                'params' => 1,
+            ));
             $router->add('/products/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
@@ -207,26 +214,26 @@ class Application extends BaseApplication
                 'action' => 'show',
                 'params' => 1,
             ));
-            $router->add('/login', array(
+            $router->add('/dang-nhap', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'login',
                 'action' => 'index',
             ));
-            $router->add('/cart', array(
+            $router->add('/gio-hang', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'cart',
                 'action' => 'index',
             ));
-            $router->add('/checkout/:params', array(
+            $router->add('/mua-hang/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'checkout',
                 'action' => 'index',
                 'params' => 1
             ));
-            $router->add('/checkout/:action/:params', array(
+            $router->add('/mua-hang/:action/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'checkout',
@@ -245,7 +252,19 @@ class Application extends BaseApplication
                 'controller' => 'account',
                 'action' => 1,
             ));
-            $router->add('/register', array(
+            $router->add('/doi-mat-khau', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'account',
+                'action' => 'resetPass',
+            ));
+            $router->add('/sua-thong-tin', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'account',
+                'action' => 'update',
+            ));
+            $router->add('/dang-ky', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'login',

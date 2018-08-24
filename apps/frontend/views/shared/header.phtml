@@ -22,9 +22,9 @@
                     echo "<a href=".$this->url->get('account').">Chào ".$this->session->get("userName")."</a>";
                 }
                 else{
-                    echo "<a href=".$this->url->get('login').">ĐĂNG NHẬP</a>";
+                    echo "<a href=".$this->url->get('dang-nhap').">ĐĂNG NHẬP</a>";
                 }?>
-                <a href="<?php echo $this->url->get('cart') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
+                <a href="<?php echo $this->url->get('gio-hang') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
                      GIỎ HÀNG
                     <!-- <div class="cart-top-info">
                         <p>Tổng cộng: 0</p>
@@ -48,43 +48,33 @@
                                 <ul class="menu-item bg">
                                     <li><a href="<?= $this->url->get('collections/san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
                                     <li><a href="<?= $this->url->get('collections/san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">SALE OFF: UP TO 50%</a></li>
                                 </ul>
-                                <ul class="menu-item">
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO KHOÁC</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO SƠ MI</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO THUN</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO POLO</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO NỈ</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">ÁO LEN</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">HOODIES</a></li>
-                                </ul>
-                                <ul class="menu-item">
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">QUẦN JEAN</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">QUẦN KAKI</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">QUẦN TÂY</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">QUẦN ĐÙI</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">JOGGERS</a></li>
-                                </ul>
-                                <ul class="menu-item">
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">NÓN - VỚ - UNDERWEAR - PHỤ KIỆN</a></li>
-                                    <li><a href="<?= $this->url->get('collections/new') ?>">GIÀY - DÉP</a></li>
-                                </ul>
+                                <?php foreach ($categories as $category) : ?>
+                                    <?php if (is_null($category->parent_id)) { ?>
+                                        <ul class="menu-item">
+                                        <?php foreach ($categories as $child) {
+                                            if ($child->parent_id == $category->_id) { ?>
+                                                <li><a href="<?= $this->url->get('collections/'.$child->_id) ?>"><?php echo $child->title ?></a></li>
+                                            <?php }
+                                        } ?>
+                                        </ul>
+                                    <?php } ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('about') ?>">Giới thiệu</a>
+                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('gioi-thieu') ?>">Giới thiệu</a>
                     </li>
                     <li class=" has-child" >
-                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('introduce') ?>">Hướng dẫn</a>
+                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Hướng dẫn</a>
                         <ul class="child">
-                            <li><a href="<?php echo $this->url->get('introduce') ?>">Hướng Dẫn Mua Hàng Online</a></li>
-                            <li><a href="<?php echo $this->url->get('size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
+                            <li><a href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Hướng Dẫn Mua Hàng Online</a></li>
+                            <li><a href="<?php echo $this->url->get('huong-dan-lua-chon-size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('address') ?>">Địa chỉ cửa hàng</a>
+                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('he-thong-cua-hang') ?>">Địa chỉ cửa hàng</a>
                     </li>
                 </ul>
             </div>

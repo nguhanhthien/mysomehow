@@ -1,9 +1,10 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
+
 use Models\Users;
 use Helper\LoginValidation;
 
-class LoginController extends \Phalcon\Mvc\Controller
+class LoginController extends BaseController
 {
     public function indexAction()
     {
@@ -66,7 +67,7 @@ class LoginController extends \Phalcon\Mvc\Controller
                         echo $message;
                     }
                     $this->view->setVar('messages', $messages);
-                    return $this->response->redirect('frontend/login/register');
+                    return $this->response->redirect('dang-ky');
                 }else{
                     // đăng ký thành công
                     $this->session->set("userName", $user->display_name);
