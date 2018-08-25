@@ -226,6 +226,13 @@ class Application extends BaseApplication
                 'controller' => 'cart',
                 'action' => 'index',
             ));
+            $router->add('/checkout/:action/:params', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'checkout',
+                'action' => 1,
+                'params' => 2
+            ));
             $router->add('/mua-hang/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',

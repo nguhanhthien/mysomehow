@@ -179,6 +179,9 @@
       $('#sortBy').change(function () {
          location.href='<?= $this->url->get('') ?>' + '?sort_by=' + $(this).val();
       })
+      $('#search-field').keyup(function () {
+         alert('hello');
+      })
    })
 </script>
 

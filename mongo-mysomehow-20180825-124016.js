@@ -62,8 +62,8 @@ db.getCollection("location").ensureIndex({
   
 ]);
 
-/** order indexes **/
-db.getCollection("order").ensureIndex({
+/** orders indexes **/
+db.getCollection("orders").ensureIndex({
   "_id": NumberInt(1)
 },[
   
@@ -9510,13 +9510,13 @@ db.getCollection("location").insert({
   "path_name": ", Tỉnh Hòa Bình"
 });
 
-/** order records **/
-db.getCollection("order").insert({
+/** orders records **/
+db.getCollection("orders").insert({
   "_id": ObjectId("5b7e5ecf16d5bd4c31000029"),
   "customer_name": "Phan Xuân Vinh",
   "customer_email": "dsadasdas@dgfdg.com",
-  "customer_phone": "1663521069",
-  "customer_address": "KTX khu B, Đại Học Quốc Gia TPHCM",
+  "customer_phone": "0123456789",
+  "customer_address": "Cô Bắc, Quận 1, Hồ Chí Minh",
   "product": [
     {
       "id": "jogger-das-suong",
@@ -9536,8 +9536,51 @@ db.getCollection("order").insert({
     }
   ],
   "total_price": NumberInt(1560000),
+  "status": "Mới",
   "created_at": NumberInt(1535008463),
   "updated_at": NumberInt(1535008463)
+});
+db.getCollection("orders").insert({
+  "_id": ObjectId("5b81247716d5bda034000029"),
+  "customer_name": "Ngô Bảo Châu",
+  "customer_email": "chaungo@gmail.com",
+  "customer_phone": "0987654321",
+  "customer_address": "Ba vì, Hà Nội",
+  "product": [
+    {
+      "id": "non-chu-b",
+      "name": "NÓN CHỮ B",
+      "price": NumberInt(280000),
+      "quantity": NumberInt(2),
+      "size": "Một size",
+      "total_price": NumberInt(560000)
+    }
+  ],
+  "total_price": NumberInt(560000),
+  "status": "Mới",
+  "created_at": NumberInt(1535190135),
+  "updated_at": NumberInt(1535190135)
+});
+db.getCollection("orders").insert({
+  "_id": ObjectId("5b8125ad16d5bdb021000029"),
+  "customer_name": "Phạm Thùy Trang",
+  "customer_email": "trang@gmail.com",
+  "customer_phone": "0654123987",
+  "customer_address": "Quận 10, Hồ Chí Minh",
+  "product": [
+    {
+      "id": "non-con-ech",
+      "name": "NÓN CON ẾCH",
+      "price": NumberInt(250000),
+      "quantity": NumberInt(1),
+      "size": "Một size",
+      "total_price": NumberInt(250000)
+    }
+  ],
+  "total_price": NumberInt(250000),
+  "status": "Mới",
+  "created_at": NumberInt(1535190445),
+  "updated_at": NumberInt(1535190445)
 });
 
 /** products records **/

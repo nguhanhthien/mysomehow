@@ -35,7 +35,7 @@
                </div>
             </div>
             <div class="pull-right showing">
-               Hiển thị <?= $pages->current_items.'/'.$pages->total_items ?> Sản phẩm
+               Hiển thị <?= min($pages->current_items + 8,$pages->total_items).'/'.$pages->total_items ?> Sản phẩm
             </div>
          </div>
          <div class="product-lists clearfix">

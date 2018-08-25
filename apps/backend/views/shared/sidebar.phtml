@@ -28,7 +28,7 @@
     </li>
 
     <!-- Quản lý đơn hàng -->
-    <li class="nav-item ">
+    <li class="nav-item <?= $controller == 'orders' ? 'active' : null ?>">
       <a class="nav-link" data-toggle="collapse" href="#bill" aria-expanded="false" aria-controls="bill">
         <i class="menu-icon mdi mdi-clipboard-text"></i>
         <span class="menu-title">Quản lý đơn hàng</span>
@@ -37,7 +37,7 @@
       <div class="collapse" id="bill">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="">Đơn hàng</a>
+            <a class="nav-link" href="<?= $this->url->get('backend/orders') ?>"><i class="mdi mdi-menu-right"></i>Đơn hàng</a>
           </li>
         </ul>
       </div>
@@ -54,16 +54,16 @@
       <div class="collapse" id="product">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="<?= $this->url->get('backend/products') ?>">Sản phẩm</a>
+            <a class="nav-link" href="<?= $this->url->get('backend/products') ?>"><i class="mdi mdi-menu-right"></i>Sản phẩm</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sản phẩm mới</a>
+            <a class="nav-link" href="<?= $this->url->get('backend/products/new') ?>"><i class="mdi mdi-menu-right"></i>Sản phẩm mới</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sản phẩm bán chạy</a>
+            <a class="nav-link" href="<?= $this->url->get('backend/products/bestsellers') ?>"><i class="mdi mdi-menu-right"></i>Sản phẩm bán chạy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= $this->url->get('backend/categories') ?>">Danh mục sản phẩm</a>
+            <a class="nav-link" href="<?= $this->url->get('backend/categories') ?>"><i class="mdi mdi-menu-right"></i>Danh mục sản phẩm</a>
           </li>
         </ul>
       </div>
@@ -79,10 +79,10 @@
       <div class="collapse" id="customer">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo $this->url->get('backend/users') ?>">Khách hàng</a>
+            <a class="nav-link" href="<?php echo $this->url->get('backend/users') ?>"><i class="mdi mdi-menu-right"></i>Khách hàng</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Messages</a>
           </li>
         </ul>
       </div>
@@ -98,10 +98,10 @@
       <div class="collapse" id="news">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="">Bài viết</a>
+            <a class="nav-link" href=""><i class="mdi mdi-menu-right"></i>Bài viết</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Danh mục bài viết</a>
+            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Danh mục bài viết</a>
           </li>
         </ul>
       </div>
@@ -117,10 +117,10 @@
       <div class="collapse" id="slide">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="">Slide</a>
+            <a class="nav-link" href=""><i class="mdi mdi-menu-right"></i>Slide</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Banner</a>
+            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Banner</a>
           </li>
         </ul>
       </div>

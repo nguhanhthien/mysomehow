@@ -3,7 +3,7 @@ namespace Models;
 
 use Phalcon\Mvc\Collection;
 
-class Order extends Collection
+class Orders extends Collection
 {
 	public $_id;
 	public $customer_name;
@@ -12,6 +12,7 @@ class Order extends Collection
 	public $customer_address;
 	public $product;
 	public $total_price;
+	public $status;
 	public $created_at;
 	public $updated_at;
 

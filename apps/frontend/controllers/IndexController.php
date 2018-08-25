@@ -82,10 +82,19 @@ class IndexController extends BaseController
         $this->view->setVar('sort_by', $sort_by);
     }
 
+    public function searchAction($key = null)
+    {
+        $products = Products::find([
+            ['title' => ['$regex' => 'Á']],
+        ]);
+        echo "<pre>";
+        var_dump($products);
+        die();
+    }
+
     public function notfoundAction()
     {
     	
     }
-
 }
 

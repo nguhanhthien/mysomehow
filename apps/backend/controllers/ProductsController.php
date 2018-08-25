@@ -122,6 +122,56 @@ class ProductsController extends BaseController
         }
     }
 
+    public function newAction()
+    {
+        $total = Products::count();
+
+        // Get current page
+        if ($this->request->get('page')) {
+            $currentPage = $this->request->get('page');
+        }else{
+            $currentPage = 1;
+        }
+
+        $limit = 5;
+        $pagination = Pagination::add($currentPage, $total, $limit);
+
+        // The data set to paginate
+        $products = Products::find([
+            'sort' => ['created_at' => -1],
+            'limit' => $limit,
+            'skip'  => ($currentPage - 1) * $limit,
+        ]);
+
+        $this->view->setVar('products', $products);
+        $this->view->setVar('pages', $pagination);
+    }
+
+    public function bestsellersAction()
+    {
+        $total = Products::count();
+
+        // Get current page
+        if ($this->request->get('page')) {
+            $currentPage = $this->request->get('page');
+        }else{
+            $currentPage = 1;
+        }
+
+        $limit = 5;
+        $pagination = Pagination::add($currentPage, $total, $limit);
+
+        // The data set to paginate
+        $products = Products::find([
+            'sort' => ['sold' => -1],
+            'limit' => $limit,
+            'skip'  => ($currentPage - 1) * $limit,
+        ]);
+
+        $this->view->setVar('products', $products);
+        $this->view->setVar('pages', $pagination);
+    }
+
     public function updateAction($id = null)
     {
     	if ($id) {

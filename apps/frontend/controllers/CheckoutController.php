@@ -4,7 +4,7 @@ namespace Mysomwhow\Frontend\Controllers;
 use Phalcon\Mvc\View;
 use ShoppingCart;
 use Models\Location;
-use Models\Order;
+use Models\Orders;
 use Helper\CheckoutValidation;
 
 class CheckoutController extends BaseController
@@ -45,17 +45,17 @@ class CheckoutController extends BaseController
 				$this->view->setVar('errors', $errors);
 			}else{
 				// no error
-				$order = new Order();
+				$orders = new Orders();
 
-				$order->customer_name = $params['billing_name'];
-				$order->customer_email = $params['billing_email'];
-				$order->customer_phone = $params['billing_phone'];
-				$order->customer_address = $params['billing_address'];
+				$orders->customer_name = $params['billing_name'];
+				$orders->customer_email = $params['billing_email'];
+				$orders->customer_phone = $params['billing_phone'];
+				$orders->customer_address = $params['billing_address'];
 
-				$order->product = array();
+				$orders->product = array();
 
 				foreach ($this->cart->getContent() as $cart) {
-					array_push($order->product, array(
+					array_push($orders->product, array(
 						'id' => $cart['id'],
 						'name' => $cart['name'],
 						'price' => (int) $cart['price'],
@@ -65,15 +65,16 @@ class CheckoutController extends BaseController
 					));
 				}
 
-				$order->total_price = $this->cart->getTotal();
-				$order->created_at = time();
-				$order->updated_at = time();
+				$orders->total_price = $this->cart->getTotal();
+				$orders->status = "Mới";
+				$orders->created_at = time();
+				$orders->updated_at = time();
 
 				// delete cart
 				$this->cart->destroy();
 
-				$order->save();
-				$this->response->redirect('mua-hang/success');
+				$orders->save();
+				$this->response->redirect('');
 			}
 		}
 
