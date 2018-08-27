@@ -3,23 +3,19 @@ namespace Models;
 
 use Phalcon\Mvc\Collection;
 
-class Setting extends Collection
+class Size extends Collection
 {
 	public $_id;
 	public $title;
-	public $description;
-	public $web_thumbnail;
-	public $web_logo;
-	public $info;
-	public $social;
-	public $phone_support;
+	public $images;
 	public $created_at;
 	public $updated_at;
 
 
     public function initialize()
     {
-    	
+    	// không dùng id mặc đinh
+    	$this->useImplicitObjectIds(false);
     }
 
 }

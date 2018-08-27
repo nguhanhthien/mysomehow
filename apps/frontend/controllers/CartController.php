@@ -7,6 +7,7 @@ class CartController extends BaseController
 {
 	public function initialize()
 	{
+		parent::initialize();
 		$this->cart = new ShoppingCart();
 	}
 

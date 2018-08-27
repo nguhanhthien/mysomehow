@@ -11,35 +11,18 @@
 					<h1>Hệ thống cửa hàng</h1>
 				</div>
 				<div class="stores-list clearfix">
+					<?php $count = 1; foreach ($setting->info as $info) : ?>
 					<div class="stores-item">
-						<a href="/blogs/diem-ban-binh-thanh/17bis">
-							<img src="<?php echo $this->url->get('img/14/page_store_1.jpg') ?>" alt="Store 1" />
+						<a href="<?= $this->url->get('pages/he-thong-cua-hang/'.$info['id']) ?>">
+							<img src="<?php echo $this->url->get('img/14/'.$info['images']) ?>"/>
 							<div class="stores-info">
-								<p class="title">Store 1</p>
-							<p class="address">17 Bis Huỳnh Đình Hai P.14 Quận Bình Thạnh</p>
-							<p class="hotline">0909 045 600</p>
-						</div>
-					</a>
-				</div>
-				<div class="stores-item">
-					<a href="/blogs/diem-ban-binh-thanh/32b-nguyen-bieu-phuong-1-quan-5">
-						<img src="<?php echo $this->url->get('img/14/page_store_2.jpg') ?>" alt="Store 2" />
-						<div class="stores-info">
-							<p class="title">Store 2</p>
-							<p class="address">332 Cao Đạt P.1 Quận 5</p>
-							<p class="hotline">01634 100 200</p>
-						</div>
-					</a>
-				</div>
-				<div class="stores-item">
-					<a href="/blogs/diem-ban-binh-thanh/188-16-thanh-thai-phuong-12-quan-10">
-						<img src="<?php echo $this->url->get('img/14/page_store_3.jpg') ?>" alt="Store 3" />
-						<div class="stores-info">
-							<p class="title">Store 3</p>
-							<p class="address">188/16 Thành Thái P.12 Quận 10</p>
-							<p class="hotline">01667 131 234</p>
-						</div>
-					</a>
+								<p class="title">Store <?= $count ?></p>
+								<p class="address"><?= $info['address'] ?></p>
+								<p class="hotline"><?= $info['phone'] ?></p>
+							</div>
+						</a>
+					</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>

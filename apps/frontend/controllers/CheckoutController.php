@@ -11,6 +11,7 @@ class CheckoutController extends BaseController
 {
 	public function initialize()
 	{
+		parent::initialize();
 		$this->cart = new ShoppingCart();
 	}
 
@@ -21,9 +22,9 @@ class CheckoutController extends BaseController
     		$this->response->redirect('');
     	}
 
-		$this->view->disableLevel(
+		/*$this->view->disableLevel(
 			View::LEVEL_MAIN_LAYOUT
-		);
+		);*/
 
 		$provinces = Location::find([
 			['type' => 'prov'],

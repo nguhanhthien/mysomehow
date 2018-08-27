@@ -83,6 +83,13 @@ db.getCollection("setting").ensureIndex({
   
 ]);
 
+/** size indexes **/
+db.getCollection("size").ensureIndex({
+  "_id": NumberInt(1)
+},[
+  
+]);
+
 /** test indexes **/
 db.getCollection("test").ensureIndex({
   "_id": NumberInt(1)
@@ -9536,7 +9543,7 @@ db.getCollection("orders").insert({
     }
   ],
   "total_price": NumberInt(1560000),
-  "status": "Mới",
+  "status": "Đã xác nhận",
   "created_at": NumberInt(1535008463),
   "updated_at": NumberInt(1535008463)
 });
@@ -9557,7 +9564,7 @@ db.getCollection("orders").insert({
     }
   ],
   "total_price": NumberInt(560000),
-  "status": "Mới",
+  "status": "Đã hủy",
   "created_at": NumberInt(1535190135),
   "updated_at": NumberInt(1535190135)
 });
@@ -11812,30 +11819,90 @@ db.getCollection("products").insert({
 /** setting records **/
 db.getCollection("setting").insert({
   "_id": ObjectId("5b6fbbf816d5bdac0e000029"),
-  "title": "SomeHow Store - Shop for Men's Fashion",
+  "title": "Shop for Men's Fashion",
   "description": "Chuyên quần áo nam phong cách Tây Âu",
-  "web_icon": "faviconc79a.png",
+  "web_thumbnail": "faviconc79a.png",
   "web_logo": "logo.svg",
   "info": [
     {
+      "id": "17-bis-huynh-dinh-hai-p14-quan-binh-thanh",
       "address": "17 Bis Huỳnh Đình Hai P.14 Quận Bình Thạnh",
-      "phone": "0909 045 600"
+      "phone": "0909 045 600",
+      "images": "page_store_1.jpg",
+      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.547912911216!2d106.66392431435042!3d10.769282992326398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b8d16ba3a5%3A0xa1bb329cedcb01c9!2sSomeHow+Store!5e0!3m2!1svi!2s!4v1535352201629\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
     },
     {
+      "id": "332-cao-dat-p1-quan-5",
       "address": "332 Cao Đạt P.1 Quận 5",
-      "phone": "01634 100 200"
+      "phone": "01634 100 200",
+      "images": "page_store_2.jpg",
+      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7496017428452!2d106.67810001435015!3d10.753771392336908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f03b9bcf79d%3A0xe8072e19dfa3166a!2zMzMyIENhbyDEkOG6oXQsIHBoxrDhu51uZyAxLCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1535352073869\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
     },
     {
+      "id": "18816-thanh-thai-p12-quan-10",
       "address": "188/16 Thành Thái P.12 Quận 10",
-      "phone": "01667 131 234"
+      "phone": "01667 131 234",
+      "images": "page_store_3.jpg",
+      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7839.008365126168!2d106.6606842225118!3d10.772643319296277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec4b7343f1d%3A0xbb06228fd066a74d!2sSomehow+Store!5e0!3m2!1svi!2s!4v1535352158812\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
     }
   ],
   "social": {
-    "facebook": "https://www.facebook.com/somehowstore",
+    "facebook": "https://www.facebook.com/somehowstores",
     "instagram": "https://www.instagram.com/somehowstore17"
   },
-  "created_at": NumberInt(1534060273),
-  "updated_at": NumberInt(1534060273)
+  "phone_support": "0287 307 64 64",
+  "created_at": NumberInt(1535339863),
+  "updated_at": NumberInt(1535352967)
+});
+
+/** size records **/
+db.getCollection("size").insert({
+  "_id": "ao-so-mi",
+  "title": "ÁO SƠ MI",
+  "images": "ao-so-mi-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "ao-so-mi-details.png"
+});
+db.getCollection("size").insert({
+  "_id": "ao-polo",
+  "title": "ÁO POLO",
+  "images": "ao-polo-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "ao-polo-details.png"
+});
+db.getCollection("size").insert({
+  "_id": "ao-thun",
+  "title": "ÁO THUN",
+  "images": "ao-thun-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "ao-thun-details.png"
+});
+db.getCollection("size").insert({
+  "_id": "hoodies",
+  "title": "HOODIES",
+  "images": "hoodies-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "hoodies-details.png"
+});
+db.getCollection("size").insert({
+  "_id": "ni-len",
+  "title": "NỈ, LEN",
+  "images": "ni-len-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "ni-len-details.png"
+});
+db.getCollection("size").insert({
+  "_id": "ao-khoac",
+  "title": "ÁO KHOÁC",
+  "images": "ao-khoac-large.png",
+  "created_at": null,
+  "updated_at": null,
+  "images_details": "ao-khoac-details.png"
 });
 
 /** test records **/

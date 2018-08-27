@@ -121,5 +121,19 @@ class ProductsController extends BaseController
             }
         }
     }
+
+    public function searchAction($key = null)
+    {
+        if ($key) {
+            $products = Products::find([
+                ['title' => ['$regex' => mb_strtoupper(trim($key))]],
+            ]);
+
+            if ($products) {
+                $this->view->setVar('count', count($products));
+                $this->view->setVar('products', $products);
+            }
+        }
+    }
 }
 

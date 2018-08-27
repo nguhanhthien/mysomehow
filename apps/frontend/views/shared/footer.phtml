@@ -2,27 +2,16 @@
 	<div class="footer-block">
 		<div class="container">
 			<div class="footer-address clearfix">
+				<?php $count = 1; foreach ($setting->info as $info) : ?>
 				<div class="adress-item">
-					<h4>Store 1</h4>
+					<h4>Store <?= $count ?></h4>
 					<ul>
-						<li class="add"><i class="fa fa-home"></i>17 Bis Huỳnh Đình Hai P.14 Quận Bình Thạnh</li>
-						<li class="hotline"><a href="tel:0909045600"><i class="fa fa-phone"></i>0909 045 600</a></li>
+						<li class="add"><i class="fa fa-home"></i><?= $info['address'] ?></li>
+						<li class="hotline"><a href="tel:0909045600"><i class="fa fa-phone"></i>
+							<?= $info['phone'] ?></a></li>
 					</ul>
 				</div>
-				<div class="adress-item">
-					<h4>Store 2</h4>
-					<ul>
-						<li class="add"><i class="fa fa-home"></i>332 Cao Đạt P.1 Quận 5</li>
-						<li class="hotline"><a href="tel:01634100200"><i class="fa fa-phone"></i>01634 100 200</a></li>
-					</ul>
-				</div>
-				<div class="adress-item">
-					<h4>Store 3</h4>
-					<ul>
-						<li class="add"><i class="fa fa-home"></i>188/16 Thành Thái P.12 Quận 10</li>
-						<li class="hotline"><a href="tel:01667131234"><i class="fa fa-phone"></i>01667 131 234</a></li>
-					</ul>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
@@ -30,21 +19,12 @@
 		<div class="container">
 			<h4>Like Somehow trên mạng xã hội</h4>
 			<ul class="clearfix">
-				<li><a href="https://www.facebook.com/somehowstore?fref=ts" class="fb"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="https://www.instagram.com/somehowstore17/" class="in"><i class="fa fa-instagram"></i></a></li>
+				<li><a href="<?= $setting->social['facebook'] ?>" class="fb"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="<?= $setting->social['instagram'] ?>" class="in"><i class="fa fa-instagram"></i></a></li>
 			</ul>
 		</div>
-	</div>
-	<div class="footer-newsletter text-center">
-		<div class="container">
-			<h4>Sign up for the newsletter</h4>
-			<p class="sub">Sign up to receive must-have style news and updates before anyone else.</p>
-			<div class="link">
-				<a href="pages/about-us.html">Contact us</a>
-			</div>
-		</div>
-	</div>
+	</div><br>
 	<div class="copyright">
-		© 2017 SOMEHOW. Văn phòng: 188/16 Thành Thái P.12, Quận 10 - TP.HCM
+		© <?= date('Y') ?> SOMEHOW. Văn phòng: 188/16 Thành Thái P.12, Quận 10 - TP.HCM
 	</div>
 </footer>

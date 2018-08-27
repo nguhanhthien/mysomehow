@@ -1,8 +1,8 @@
 <?php
 namespace Mysomwhow\Frontend\Controllers;
 
-use Models\Products;
 use Helper\Pagination;
+use Models\Products;
 
 class IndexController extends BaseController
 {
@@ -80,16 +80,6 @@ class IndexController extends BaseController
         $this->view->setVar('products', $products);
         $this->view->setVar('pages', $pagination);
         $this->view->setVar('sort_by', $sort_by);
-    }
-
-    public function searchAction($key = null)
-    {
-        $products = Products::find([
-            ['title' => ['$regex' => 'Á']],
-        ]);
-        echo "<pre>";
-        var_dump($products);
-        die();
     }
 
     public function notfoundAction()

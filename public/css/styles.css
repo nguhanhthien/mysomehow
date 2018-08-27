@@ -1,43 +1,43 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
  @font-face {
      font-family: 'sfu-bold';
-     src: url("sfuhelveticaboldc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticaboldc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-con-bold';
-     src: url("sfuhelveticacondensedboldc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticacondensedboldc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-con-black';
-     src: url("sfuhelveticacondensedblackc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticacondensedblackc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-light';
-     src: url("sfuhelveticalightc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticalightc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-light-ob';
-     src: url("sfuhelveticalightobliquec79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticalightobliquec79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-narrow';
-     src: url("sfuhelveticanarrowboldc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticanarrowboldc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
  @font-face {
      font-family: 'sfu-regular';
-     src: url("sfuhelveticaregularc79a.ttf?v=72") format("truetype");
+     src: url("../fonts/sfuhelveticaregularc79a.ttf?v=72") format("truetype");
      font-weight: normal;
      font-style: normal;
 }
@@ -1236,7 +1236,7 @@
      font-family: 'sfu-con-bold';
 }
  .product-lists .product-item .info h3 a:hover {
-     color: #b37c0a;
+     color: #9100ff;
 }
  .product-lists .product-item .info .prices {
      color: #656565;

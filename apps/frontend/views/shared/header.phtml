@@ -4,13 +4,12 @@
         <div class="container">
             <h1 class="logo">
                 <a href="<?php echo $this->url->get('') ?>" class="brand">
-                    <img src="<?php echo $this->url->get('img/14/logo.svg') ?>" alt="SomeHow Store" />
+                    <img src="<?php echo $this->url->get('img/14/'.$setting->web_logo) ?>" alt="SomeHow Store" />
                 </a>
             </h1>
             <div class="form-search">
-                <form action="#" method="get" class="search-bar" role="search" onsubmit="" style="width: 500px;">
-                  <input type="hidden" name="type" value="product">
-                  <input type="search" name="q" value="" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." class="search-field tt-input" id="search-field" autocomplete="off" spellcheck="false" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Quicksand, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+                <form action="" method="get" class="search-bar" role="search" onsubmit="" style="width: 500px;">
+                  <input type="search" name="search" value="" placeholder="Tìm kiếm..."  class="search-field tt-input" id="search-field" >
                   <button type="submit" class="search-bar--submit icon-fallback-text">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                   </button>
@@ -46,8 +45,8 @@
                         <div class="sub">
                             <div class="sub-container">
                                 <ul class="menu-item bg">
-                                    <li><a href="<?= $this->url->get('collections/san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
-                                    <li><a href="<?= $this->url->get('collections/san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
+                                    <li><a href="<?= $this->url->get('san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
+                                    <li><a href="<?= $this->url->get('san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
                                 </ul>
                                 <?php foreach ($categories as $category) : ?>
                                     <?php if (is_null($category->parent_id)) { ?>

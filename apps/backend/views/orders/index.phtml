@@ -35,10 +35,13 @@
                   echo '<td><label class="badge badge-danger">'.$status.'</label></td>';
                   break;
                 case 'Đang giao':
-                  echo '<td><label class="badge badge-info">'.$ostatus.'</label></td>';
+                  echo '<td><label class="badge badge-info">'.$status.'</label></td>';
                   break;
                 case 'Hoàn thành':
                   echo '<td><label class="badge badge-success">'.$status.'</label></td>';
+                  break;
+                case 'Đã hủy':
+                  echo '<td><label class="badge badge-dark">'.$status.'</label></td>';
                   break;
                 default:
                   break;
