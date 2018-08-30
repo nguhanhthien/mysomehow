@@ -59,8 +59,8 @@ class ProductsController extends BaseController
                 $product = new Products;
 
                 // submit data from form
-                $params = $this->request->getPost();    
-                
+                $params = $this->request->getPost(); 
+
                 // Check file upload
                 if ($this->request->hasFiles()) {
                     // data color
@@ -263,6 +263,18 @@ class ProductsController extends BaseController
             }else{
                 $this->flashSession->warning('Không tìm thấy sản phẩm này.');
                 $this->response->redirect('backend/products');
+            }
+        }
+    }
+
+    public function showAction($id = null)
+    {
+        if ($id) {
+            $product = Products::findFirst([
+                ['_id' => $id]
+            ]);
+            if ($product) {
+                $this->view->setVar('product', $product);
             }
         }
     }

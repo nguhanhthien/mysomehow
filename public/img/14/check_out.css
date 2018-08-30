@@ -1,5 +1,5 @@
 a{
-	color: #fcce6f;
+	color: #9100ff;
 }
 a:hover{
 	color: #000;
@@ -20,7 +20,7 @@ a:hover{
 .order-summary-toggle .order-summary-toggle-inner .order-summary-toggle-text .order-summary-toggle-dropdown,
 .step-footer .step-footer-previous-link .previous-link-icon,
 .step-footer .step-footer-previous-link:hover .previous-link-icon{
-	fill: #fcce6f;
+	fill: #9100ff;
 }
 .order-summary-toggle .order-summary-toggle-inner .order-summary-toggle-text{
 	color: #fcce6f;

@@ -8,6 +8,7 @@ class Categories extends Collection
 	public $_id;
 	public $title;
 	public $parent_id;
+	public $images;
 	public $created_at;
 	public $updated_at;
 

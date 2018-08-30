@@ -9,11 +9,25 @@
    </div><br>
    <div class="container">
       <div class="row">
+         <?php if (isset($params)) : ?>
+            <?php switch ($params) {
+               case 'san-pham-moi':
+                  $this->partial('shared/products/new_products');
+                  break;
+               case 'san-pham-ban-chay':
+                  $this->partial('shared/products/bestseller_products');
+                  break;
+               default:
+                  $this->partial('shared/products/products');
+                  break;
+            } ?>
+         <?php endif; ?>
          <div class="clearfix filter-box">
             <div class="browse-tags pull-left">
                <span class="hidden">Sắp xếp theo:</span>
+               <form action="" id="form_sort" method="get">
                <span  class="custom-dropdown custom-dropdown--white">
-                  <select class="sort-by custom-dropdown__select custom-dropdown__select--white">
+                  <select class="sort-by custom-dropdown__select custom-dropdown__select--white" name="sort_by">
                      <option value="created-descending" <?= $sort_by=='created-descending'?'selected':'' ?>>
                      Mới nhất</option>
                      <option value="best-selling" <?= $sort_by=='best-selling'?'selected':'' ?>>Bán chạy nhất</option>
@@ -23,6 +37,7 @@
                      <option value="title-descending" <?= $sort_by=='title-descending'?'selected':'' ?>>Tên: Z-A</option>
                   </select>
                </span>
+               </form>
             </div>
             <div class="pull-right showing">
                Hiển thị <?= min($pages->current_items + 8,$pages->total_items).'/'.$pages->total_items ?> Sản phẩm
@@ -53,8 +68,8 @@
                <?php if ($current==1) :?>
                   <span class="page-node current">1</span>
                <?php else: ?>
-                  <a class="page-node" href="<?= $this->url->get('collections/?page='.$pages->before) ?>"><span><i class="fa fa-angle-left"></i></span></a>
-                  <a class="page-node" href="<?= $this->url->get('collections/?page='.$pages->first) ?>"><?= $pages->first?></a>
+                  <a class="page-node" href="<?= $this->url->get('collections?page='.$pages->before) ?>"><span><i class="fa fa-angle-left"></i></span></a>
+                  <a class="page-node" href="<?= $this->url->get('collections?page='.$pages->first) ?>"><?= $pages->first?></a>
                <?php endif; ?>
 
                <!-- -----------------------  -->
@@ -70,7 +85,7 @@
                   }elseif ($current==$i) { ?>
                      <span class="page-node current"><?= $i ?></span>
                   <?php }else{ ?>
-                     <a class="page-node" href="<?= $this->url->get('collections/?page='.$i) ?>"><?= $i ?></a>
+                     <a class="page-node" href="<?= $this->url->get('collections?page='.$i) ?>"><?= $i ?></a>
                  <?php } ?>
                <?php endfor; ?>
 
@@ -83,8 +98,8 @@
                <?php if ($current==$pages->last) :?>
                   <span class="page-node current"><?= $pages->last?></span>
                <?php else: ?>
-                  <a class="page-node" href="<?= $this->url->get('collections/?page='.$pages->last) ?>"><?= $pages->last?></a>
-                  <a class="page-node" href="<?= $this->url->get('collections/?page='.$pages->next) ?>"><span><i class="fa fa-angle-right"></i></span></a>
+                  <a class="page-node" href="<?= $this->url->get('collections?page='.$pages->last) ?>"><?= $pages->last?></a>
+                  <a class="page-node" href="<?= $this->url->get('collections?page='.$pages->next) ?>"><span><i class="fa fa-angle-right"></i></span></a>
                <?php endif; ?>
             </div>
          </div>
@@ -95,7 +110,8 @@
 <script type="text/javascript">
    $(document).ready(function () {
       $('.sort-by').change(function () {
-         location.href='<?= $this->url->get('collections') ?>' + '?sort_by=' + $(this).val();
+         $('#form_sort').submit();
+         
       })
    })
 </script>

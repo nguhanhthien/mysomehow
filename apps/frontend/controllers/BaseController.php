@@ -5,6 +5,7 @@ use Phalcon\Mvc\Controller;
 use Models\Categories;
 use Models\Products;
 use Models\Setting;
+use Models\Slides;
 
 class BaseController extends Controller
 {
@@ -16,6 +17,9 @@ class BaseController extends Controller
 
         $setting = Setting::findfirst();
         $this->view->setVar('setting', $setting);
+
+        $slides = Slides::find();
+        $this->view->setVar('slides', $slides);
 
         //check autocomplete
         $term = $this->request->getQuery('term');

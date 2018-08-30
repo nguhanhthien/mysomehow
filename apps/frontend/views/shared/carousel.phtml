@@ -1,6 +1,7 @@
 <div id="owl-index" class="owl-carousel owl-theme">
+	<?php foreach ($slides as $slide) : ?>
 	<div class="item">
-		<img src="<?= $this->url->get('img/slide/slideshow_1c79a.jpg') ?>" alt="slider 1" />
+		<?= Phalcon\Tag::image('img/slides/'.$slide->images) ?>
 		<div class="slider-caption">
 			<div class="slider-title" >
 			</div>
@@ -9,24 +10,5 @@
 			<a href="#" class="slider-btn">Xem Thêm</a>
 		</div>
 	</div>
-	<div class="item">
-		<img src="<?= $this->url->get('img/slide/slideshow_2c79a.jpg') ?>" alt="slider 2" />
-		<div class="slider-caption">
-			<div class="slider-title" >
-			</div>
-			<div class="slider-des ">
-			</div>
-			<a href="#" class="slider-btn">Xem Thêm</a>
-		</div>
-	</div>
-	<div class="item">
-		<img src="<?= $this->url->get('img/slide/slideshow_3c79a.jpg') ?>" alt="slider 3" />
-		<div class="slider-caption">
-			<div class="slider-title" >
-			</div>
-			<div class="slider-des ">
-			</div>
-			<a href="#" class="slider-btn">Xem Thêm</a>
-		</div>
-	</div>
+	<?php endforeach; ?>
 </div>

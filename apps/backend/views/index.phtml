@@ -17,10 +17,11 @@
 	<!-- inject:css -->
 	<link rel="stylesheet" href="<?= $this->url->get('ad/css/style.css') ?>">
 	<!-- endinject -->
-	<link rel="shortcut icon" href="<?= $this->url->get('ad/images/favicon.png') ?>" />
+	<link rel="shortcut icon" href="<?= $this->url->get('img/14/favicon.png') ?>" />
 </head>
 <body>
-	<?php if(($this->router->getControllerName() != 'login') && ($this->router->getActionName() != 'notFound')): ?>
+	<?php $controller = $this->router->getControllerName() ?>
+	<?php if(($controller != 'login') && ($controller != 'notfound')): ?>
 	<div class="container-scroller">
 
 		<!-- load navbar -->

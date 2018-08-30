@@ -8,24 +8,11 @@ use ShoppingCart;
 class ProductsController extends BaseController
 {
 
-    public function indexAction()
+    public function indexAction($id = null)
     {
-        //pagination product
-        $totalItems = Products::count();
-
-        // Get current page
-        if ($this->request->get('page')) {
-            $currentPage = $this->request->get('page');
-        }else{
-            $currentPage = 1;
-        }
-
-        $limit = 8;
-        $pagination = Pagination::add($currentPage, $totalItems, $limit);
-
         // Get sort_by from url
-        if ($this->request->get('sort_by')) {
-            $sort_by = $this->request->get('sort_by');
+        if ($this->request->isGet()) {
+            $sort_by = $this->request->getQuery('sort_by');
         }else{
             $sort_by = null;
         }
@@ -54,16 +41,83 @@ class ProductsController extends BaseController
                 $input = ['_id' => -1];
                 break;
             default:
-                $input = null;
+                $input = ['created_at' => -1];
                 break;
         }
 
-        // find products for input
-        $products = Products::find([
-            'sort' => $input,
-            'limit' => $limit,
-            'skip' => ($currentPage - 1) * $limit,
-        ]);
+        // Get current page from url
+        if ($this->request->get('page')) {
+            $currentPage = $this->request->get('page');
+        }else{
+            $currentPage = 1;
+        }
+
+        //set limit pages
+        $limit = 8;
+
+        //check params from url
+        if ($id) {
+            switch ($id) {
+                case 'san-pham-moi':
+                    //pagination product
+                    $totalItems = Products::count();
+
+                    if (!$input) {
+                        $input = ['created_at' => -1];
+                    }
+
+                    // find products for input
+                    $products = Products::find([
+                        'sort' => $input,
+                        'limit' => $limit,
+                        'skip' => ($currentPage - 1) * $limit,
+                    ]);
+                    break;
+                case 'san-pham-ban-chay':
+                    //pagination product
+                    $totalItems = Products::count();
+
+                    if (!$input) {
+                        $input = ['sold' => -1];
+                    }
+
+                    // find products for input
+                    $products = Products::find([
+                        'sort' => $input,
+                        'limit' => $limit,
+                        'skip' => ($currentPage - 1) * $limit,
+                    ]);
+                    break;
+                default:
+                    //pagination product
+                    $totalItems = Products::count([
+                        ['category' => $id],
+                    ]);
+
+                    // find products for input
+                    $products = Products::find([
+                        ['category' => $id],
+                        'sort' => $input,
+                        'limit' => $limit,
+                        'skip' => ($currentPage - 1) * $limit,
+                    ]);
+                    break;
+            }
+        }else{
+            //pagination product
+            $totalItems = Products::count();
+
+            // find products for input
+            $products = Products::find([
+                'sort' => $input,
+                'limit' => $limit,
+                'skip' => ($currentPage - 1) * $limit,
+            ]);
+        }
+
+        $pagination = Pagination::add($currentPage, $totalItems, $limit);
+
+        $this->view->setVar('params', $id);
         $this->view->setVar('products', $products);
         $this->view->setVar('pages', $pagination);
         $this->view->setVar('sort_by', $sort_by);

@@ -16,6 +16,47 @@ class SettingController extends BaseController
 
             $setting->title = $params['title'];
             $setting->description = $params['description'];
+            $setting->keywords = $params['keywords'];
+
+            //images
+            $i = 0;
+            $images = array();
+            if ($this->request->hasFiles()) {
+                foreach ($this->request->getUploadedFiles() as $file) {
+                    switch ($file->getKey()) {
+                        case 'web_thumbnail':
+                            if ($file->getName() == '') {
+                                $setting->web_thumbnail = $setting->web_thumbnail;
+                            }else{
+                                $file->moveTo('img/14/' . $file->getName());
+                                $setting->web_thumbnail = $file->getName();
+                            }
+                            break;
+                        case 'web_logo':
+                            if ($file->getName() == '') {
+                                $setting->web_logo = $setting->web_logo;
+                            }else{
+                                $file->moveTo('img/14/' . $file->getName());
+                                $setting->web_logo = $file->getName();
+                            }
+                            break;
+                        case 'images'.$i.'':
+                            // if filename = null
+                            if ($file->getName() == '') {
+                                $images[] = $setting->info[$i]['images'];
+                            }else{
+                                // has file >> save file
+                                $file->moveTo('img/14/' . $file->getName());
+                                $images[] = $file->getName();
+                            }
+                            $i += 1;
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+            }
 
             // fb and instagram
             $setting->social = array(
@@ -25,74 +66,6 @@ class SettingController extends BaseController
 
             $setting->phone_support = $params['phone_support'];
 
-            $setting->updated_at = time();
-
-            $setting->save();
-            $this->flashSession->success('Cập nhật thành công.');
-            $this->response->redirect('backend/setting');
-        }
-    }
-
-    public function logoAction()
-    {
-        $setting = Setting::findFirst();
-        $this->view->setVar('setting', $setting);
-
-        if ($this->request->isPost()) {
-            //logo and icon
-            if ($this->request->hasFiles()) {
-                foreach ($this->request->getUploadedFiles() as $file) {
-                    // Luu file
-                    if ($file->getKey() == 'web_thumbnail') {
-                        if ($file->getName() == '') {
-                            $setting->web_thumbnail = $setting->web_thumbnail;
-                        }else{
-                            $file->moveTo('img/14/' . $file->getName());
-                            $setting->web_thumbnail = $file->getName();
-                        }
-                    }elseif ($file->getKey() == 'web_logo') {
-                         if ($file->getName() == '') {
-                            $setting->web_logo = $setting->web_logo;
-                        }else{
-                            $file->moveTo('img/14/' . $file->getName());
-                            $setting->web_logo = $file->getName();
-                        }
-                    }
-                }
-                $setting->updated_at = time();
-
-                $setting->save();
-                $this->flashSession->success('Cập nhật thành công.');
-                $this->response->redirect('backend/setting/logo');
-            }
-        }
-    }
-
-    public function addressAction()
-    {
-        $setting = Setting::findFirst();
-        $this->view->setVar('setting', $setting);
-
-        if ($this->request->isPost()) {
-            $params = $this->request->getPost();
-
-            // add images address
-            $i = 0;
-            if ($this->request->hasFiles()) {
-                foreach ($this->request->getUploadedFiles() as $file) {
-                    if ($file->getKey() == 'images'.$i ) {
-                        // if filename = null
-                        if ($file->getName() == '') {
-                            $images[] = $setting->info[$i]['images'];
-                        }else{
-                            // has file >> save file
-                            $file->moveTo('img/14/' . $file->getName());
-                            $images[] = $file->getName();
-                        }
-                    }
-                    $i += 1;
-                }
-            }
             // address and phone
             $setting->info = array();
             $len = count($params['address']);
@@ -110,7 +83,7 @@ class SettingController extends BaseController
 
             $setting->save();
             $this->flashSession->success('Cập nhật thành công.');
-            $this->response->redirect('backend/setting/address');
+            $this->response->redirect('backend/setting');
         }
     }
 

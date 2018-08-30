@@ -38,14 +38,14 @@ class IndexController extends BaseController
         $pagination = Pagination::add($currentPage, $totalItems, $limit);
 
         // Get sort_by from url
-        if ($this->request->get('sort_by')) {
-            $sort_by = $this->request->get('sort_by');
+        if ($this->request->isGet()) {
+            $params = $this->request->getQuery();
         }else{
             $sort_by = null;
         }
 
         // check sort by
-        switch ($sort_by) {
+        switch ($params['sort_by']) {
             case 'null':
                 $input = null;
                 break;
@@ -79,7 +79,7 @@ class IndexController extends BaseController
         ]);
         $this->view->setVar('products', $products);
         $this->view->setVar('pages', $pagination);
-        $this->view->setVar('sort_by', $sort_by);
+        $this->view->setVar('sort_by', $params['sort_by']);
     }
 
     public function notfoundAction()

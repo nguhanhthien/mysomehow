@@ -9,6 +9,7 @@
 					<?php if (isset($loginError)): ?>
 						<div class="errors"><?= $loginError ?></div>
 					<?php endif; ?>
+					<input type="hidden" name="<?= $this->security->getTokenKey() ?>" value="<?= $this->security->getToken() ?>">
 					<div class="clearfix large_form">
 						<input required type="email" value="" name="email" id="customer_email" placeholder="Email" class="text" />
 						<input required type="password" value="" name="password" id="customer_password" placeholder="Mật khẩu" class="text" />      

@@ -4,6 +4,7 @@ namespace Mysomwhow\Backend\Controllers;
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Request;
 use Phalcon\Http\Response\Cookies;
+use Models\Setting;
 
 class BaseController extends Controller
 {
@@ -19,6 +20,9 @@ class BaseController extends Controller
     		//header('Location:'.$this->url->get('backend/login'));
     		$this->response->redirect('backend/login');
     	}
+
+        $setting = Setting::findFirst();
+        $this->view->setVar('setting', $setting);
 
         $controller = $this->router->getControllerName();
         $action = $this->router->getActionName();

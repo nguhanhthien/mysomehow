@@ -104,6 +104,10 @@
     overflow-x: unset !important;
 }
 
+/* pagination */
+li.page-item {
+    margin-left: 5px
+}
 
 /* css error admin */
 
@@ -17787,7 +17791,7 @@ input:focus {
 
 .sidebar {
     min-height: calc(100vh - 63px);
-    background: #b3b3b3;
+    background: #d8e0e4;
     font-family: "Poppins", sans-serif;
     padding: 0;
     width: 255px;
@@ -17810,7 +17814,7 @@ input:focus {
 
 .sidebar .nav .nav-item .collapse.show,
 .sidebar .nav .nav-item .collapsing {
-    background: #cecece;
+    background: #b1d2d2;
 }
 
 .sidebar .nav .nav-item .nav-link {
@@ -17851,9 +17855,9 @@ input:focus {
 }
 
 .sidebar .nav .nav-item .nav-link[aria-expanded="true"] {
-    background: #cecece;
+    background: #b1d2d2;
     box-shadow: inset 0px -1px 1px 0px #636363;
-    background: #bfbfbf;
+    background: #ccdbe2;
 }
 
 .sidebar .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow {
@@ -17894,12 +17898,16 @@ input:focus {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-    background: #888888;
+    background: #c4d9e2;
 }
 
 .sidebar .nav .nav-item.active > .nav-link .menu-title,
 .sidebar .nav .nav-item.active > .nav-link i {
     color: inherit;
+}
+
+.text-muted, .preview-list .preview-item .preview-item-content p .content-category{
+    color: #808080 !important;
 }
 
 .sidebar .nav .nav-item.nav-profile .nav-link {
@@ -17945,7 +17953,7 @@ input:focus {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-profile) > .nav-link {
-    background: #bfbfbf;
+    background: #cfdfe8;
     color: #4a4a4a;
 }
 
@@ -17983,14 +17991,16 @@ input:focus {
     box-shadow: inset -2px -1px 0px 0px #8c8c8c;
 }
 
+.sidebar .nav .nav-item .collapse.show, .sidebar .nav .nav-item .collapsing{
+    background: #dfe6ea;
+}
 
 .sidebar-dark .sidebar {
     background: #161a27;
 }
 
-.sidebar-dark .sidebar .nav .nav-item .collapse.show,
-.sidebar-dark .sidebar .nav .nav-item .collapsing {
-    background: #1f2537;
+.sidebar-dark .sidebar .nav .nav-item .collapse.show, .sidebar-dark .sidebar .nav .nav-item .collapsing {
+    background: #c7d2d8;
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link {
@@ -17998,7 +18008,7 @@ input:focus {
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link[aria-expanded="true"] {
-    background: #1f2537;
+    background: #c6d9e2;
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link i {
@@ -18104,7 +18114,7 @@ input:focus {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #cecece;
+    background: #c4d7e0;
     width: 255px;
     height: 63px;
 }

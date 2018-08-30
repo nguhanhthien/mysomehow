@@ -1,12 +1,12 @@
 <?php
-
 namespace Mysomwhow\Backend\Controllers;
 
-class IndexController extends BaseController
+use Phalcon\Mvc\Controller;
+
+class NotFoundController extends Controller
 {
     public function indexAction()
     {
-    	
+
     }
-    
 }

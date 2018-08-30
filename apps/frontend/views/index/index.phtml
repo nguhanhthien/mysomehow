@@ -8,7 +8,7 @@
          <div class="main-title text-center">
             <h2>Sản phẩm mới</h2>
             <p class="shop-now">
-               <a href="<?php echo $this->url->get('san-pham-moi') ?>">Xem thêm</a>
+               <a href="<?php echo $this->url->get('collections/san-pham-moi') ?>">Xem thêm</a>
             </p>
          </div>
          <div id="owl-product-index2" class="owl-carousel owl-theme clearfix banner-list">
@@ -45,9 +45,10 @@
       <header class="section-header">
          <h3 class="section-header--title">All Items</h3>
          <div class="section-header--right">
+            <form action="" id="form_sort" method="get">
             <div class="form-horizontal">
                <label for="sortBy" class="small--hide">Sắp xếp theo</label>
-               <select name="sortBy" id="sortBy">
+               <select name="sort_by" id="sort_by">
                   <option value="created-descending" <?= $sort_by=='created-descending'?'selected':'' ?>>Mới nhất</option>
                   <option value="best-selling" <?= $sort_by=='best-selling'?'selected':'' ?>>Sản phẩm bán chạy</option>
                   <option value="title-ascending" <?= $sort_by=='title-ascending'?'selected':'' ?>>Tên, A-Z</option>
@@ -56,6 +57,7 @@
                   <option value="price-descending" <?= $sort_by=='price-descending'?'selected':'' ?>>Giá: Giảm dần</option>
                </select>
             </div>
+            </form>
          </div>
       </header>
       <div class="grid-uniform">
@@ -145,7 +147,7 @@
 			<div class="main-title text-center">
 				<h2>Sản phẩm bán chạy</h2>
 				<p class="shop-now">
-					<a href="<?php echo $this->url->get('san-pham-ban-chay') ?>">Xem thêm</a>
+					<a href="<?php echo $this->url->get('collections/san-pham-ban-chay') ?>">Xem thêm</a>
 				</p>
 			</div>
 			<div id="owl-product-index" class="owl-carousel owl-theme">
@@ -176,8 +178,8 @@
 
 <script type="text/javascript">
    $(document).ready(function () {
-      $('#sortBy').change(function () {
-         location.href='<?= $this->url->get('') ?>' + '?sort_by=' + $(this).val();
+      $('#sort_by').change(function () {
+         $('#form_sort').submit();
       });
    })
 </script>

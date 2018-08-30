@@ -3,17 +3,12 @@ namespace Models;
 
 use Phalcon\Mvc\Collection;
 
-class Setting extends Collection
+class Slides extends Collection
 {
 	public $_id;
 	public $title;
 	public $description;
-	public $keywords;
-	public $web_thumbnail;
-	public $web_logo;
-	public $info;
-	public $social;
-	public $phone_support;
+	public $images;
 	public $created_at;
 	public $updated_at;
 

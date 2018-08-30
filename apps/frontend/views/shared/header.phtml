@@ -8,7 +8,7 @@
                 </a>
             </h1>
             <div class="form-search">
-                <form action="" method="get" class="search-bar" role="search" onsubmit="" style="width: 500px;">
+                <form action="" method="get" class="search-bar" role="search" onsubmit="">
                   <input type="search" name="search" value="" placeholder="Tìm kiếm..."  class="search-field tt-input" id="search-field" >
                   <button type="submit" class="search-bar--submit icon-fallback-text">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -45,8 +45,8 @@
                         <div class="sub">
                             <div class="sub-container">
                                 <ul class="menu-item bg">
-                                    <li><a href="<?= $this->url->get('san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
-                                    <li><a href="<?= $this->url->get('san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
+                                    <li><a href="<?= $this->url->get('collections/san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
+                                    <li><a href="<?= $this->url->get('collections/san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
                                 </ul>
                                 <?php foreach ($categories as $category) : ?>
                                     <?php if (is_null($category->parent_id)) { ?>
@@ -106,7 +106,7 @@
                         </a>
                     </div>
                     <div class="login-icon">
-                        <a href="account/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                     </div>
                     <div class="menu-top clearfix">
                         <div class="search">
@@ -115,7 +115,7 @@
                     </div>
                     <div class="search-on-mobile">
                         <div class="inside">
-                            <form action="http://somehow.vn/search" method="get">
+                            <form action="#" method="get">
                                 <input type="hidden" value="product" name="type"/>
                                 <input value="" name="q" id="input-search-mobile" type="text" placeholder="Tìm kiếm...">
                                 <a href="#!" class="close-search-mobile">Đóng search</a>

@@ -12,6 +12,7 @@
               <th>STT</th>
               <th>Tên danh mục</th>
               <th>Danh mục cha</th>
+              <th>Hình ảnh</th>
               <th>Ngày tạo</th>
               <th>Ngày update</th>
               <th>Action</th>
@@ -23,6 +24,7 @@
               <td><?= $count ?></td>
               <td><?= $category->title ?></td>
               <td><?= $category->parent_id ?></td>
+              <td><img src="<?= $this->url->get('img/collection/'.$category->images['image']) ?>" alt=""></td>
               <td><?= Date("d/m/Y", $category->created_at) ?></td>
               <td><?= Date("d/m/Y", $category->updated_at) ?></td>
               <td style="font-size: 20px">

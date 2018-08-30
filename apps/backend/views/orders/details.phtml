@@ -115,7 +115,7 @@
             <?php $count = 1; foreach ($orders->product as $product): ?>
             <tr>
               <td><?= $count ?></td>
-              <td><a href="<?= $this->url->get('backend/products/update/'.$product['id']) ?>">
+              <td><a href="<?= $this->url->get('backend/products/show/'.$product['id']) ?>">
                 <?= $product['name'] ?></a></td>
               <td><?= number_format($product['price']) ?> <u>&#273</u></div></td>
               <td><?= $product['quantity'] ?></td>

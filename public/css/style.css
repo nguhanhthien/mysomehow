@@ -9,6 +9,22 @@ sup {
     vertical-align: baseline
 }
 
+.form-search .search-bar{
+    width: 500px;
+}
+
+@media only screen and (max-width: 1200px){
+    .form-search .search-bar{
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width: 1500px){
+    .form-search .search-bar{
+        margin-left: 500px;
+    }
+}
+
 .btn,
 .btn-group,
 .btn-group-vertical,

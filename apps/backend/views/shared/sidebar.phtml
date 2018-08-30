@@ -39,6 +39,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= $this->url->get('backend/orders') ?>"><i class="mdi mdi-menu-right"></i>Đơn hàng</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= $this->url->get('backend/orders/reports') ?>"><i class="mdi mdi-menu-right"></i>Thống kê</a>
+          </li>
         </ul>
       </div>
     </li>
@@ -81,9 +84,6 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $this->url->get('backend/users') ?>"><i class="mdi mdi-menu-right"></i>Khách hàng</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Messages</a>
-          </li>
         </ul>
       </div>
     </li>
@@ -98,7 +98,7 @@
       <div class="collapse" id="news">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href=""><i class="mdi mdi-menu-right"></i>Bài viết</a>
+            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Bài viết</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Danh mục bài viết</a>
@@ -120,10 +120,7 @@
       <div class="collapse" id="slide">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href=""><i class="mdi mdi-menu-right"></i>Slide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="mdi mdi-menu-right"></i>Banner</a>
+            <a class="nav-link" href="<?php echo $this->url->get('backend/slides') ?>"><i class="mdi mdi-menu-right"></i>Slide</a>
           </li>
         </ul>
       </div>
@@ -139,24 +136,10 @@
 
     <!-- Setting -->
     <li class="nav-item <?= $controller == 'setting' ? 'active' : null ?>">
-      <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="setting">
+      <a class="nav-link" href="<?php echo $this->url->get('backend/setting') ?>">
         <i class="menu-icon mdi mdi-settings"></i>
         <span class="menu-title">Setting</span>
-        <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="setting">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo $this->url->get('backend/setting') ?>"><i class="mdi mdi-menu-right"></i>Thông tin chung</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo $this->url->get('backend/setting/address') ?>"><i class="mdi mdi-menu-right"></i>Địa chỉ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo $this->url->get('backend/setting/logo') ?>"><i class="mdi mdi-menu-right"></i>Logo</a>
-          </li>
-        </ul>
-      </div>
     </li>
   </ul>
 </nav>

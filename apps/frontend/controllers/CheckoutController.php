@@ -5,6 +5,7 @@ use Phalcon\Mvc\View;
 use ShoppingCart;
 use Models\Location;
 use Models\Orders;
+use Models\Products;
 use Helper\CheckoutValidation;
 
 class CheckoutController extends BaseController
@@ -13,6 +14,9 @@ class CheckoutController extends BaseController
 	{
 		parent::initialize();
 		$this->cart = new ShoppingCart();
+		$this->assets->addCss('css/checkouts.css');
+		$this->assets->addCss('img/14/check_out.css');
+		$this->assets->addJs('js/jquery.validate.js');
 	}
 
     public function indexAction()
@@ -54,8 +58,19 @@ class CheckoutController extends BaseController
 				$orders->customer_address = $params['billing_address'];
 
 				$orders->product = array();
+				$products_id = array();
 
 				foreach ($this->cart->getContent() as $cart) {
+
+					// get id products
+					// sold = sold + 1
+					$product = Products::findFirst([
+						['_id' => $cart['id']],
+					]);
+
+					$product->sold = $product->sold + 1;
+					$product->save();
+
 					array_push($orders->product, array(
 						'id' => $cart['id'],
 						'name' => $cart['name'],
@@ -75,7 +90,8 @@ class CheckoutController extends BaseController
 				$this->cart->destroy();
 
 				$orders->save();
-				$this->response->redirect('');
+				$this->flashSession->success("Cảm ơn bạn đã đặt hàng của chúng tôi!");
+				$this->response->redirect('gio-hang');
 			}
 		}
 

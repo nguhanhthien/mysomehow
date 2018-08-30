@@ -32,7 +32,7 @@
               <td><?= Date("d/m/Y", $admin->updated_at) ?></td>
               <td style="font-size: 20px">
               	<a href="<?= $this->url->get('backend/admin/update/'.$admin->_id) ?>" class="mdi mdi-pencil" title="Update"></a>
-              	<a href="" class="mdi mdi-delete" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa?')"></a>
+              	<a href="<?= $this->url->get('backend/admin/delete/'.$admin->_id) ?>" class="mdi mdi-delete" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa?')"></a>
               </td>
             </tr>
         	<?php endforeach; $count += 1;?>

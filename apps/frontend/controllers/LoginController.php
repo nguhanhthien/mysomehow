@@ -9,23 +9,25 @@ class LoginController extends BaseController
     public function indexAction()
     {
         if ($this->request->isPost()) {
-            
-            $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
+            if ($this->security->checkToken()) {
+                echo "Token ok"; die();
+                $email = $this->request->getPost('email');
+                $password = $this->request->getPost('password');
 
-            $user = Users::findFirst([
-                [
-                    'email' => $email,
-                ],
-            ]);
-            if ($user && $this->security->checkHash($password, $user->password)) {
-                $this->session->set("userName", $user->display_name);
-                $this->session->set("email", $user->email);
-                return $this->response->redirect('account');
-            }else{
-                $loginError = "Tên tài khoản hoặc mật khẩu không chính xác.";
-                $this->view->setVar('loginError', $loginError);
-            }  
+                $user = Users::findFirst([
+                    [
+                        'email' => $email,
+                    ],
+                ]);
+                if ($user && $this->security->checkHash($password, $user->password)) {
+                    $this->session->set("userName", $user->display_name);
+                    $this->session->set("email", $user->email);
+                    return $this->response->redirect('account');
+                }else{
+                    $loginError = "Tên tài khoản hoặc mật khẩu không chính xác.";
+                    $this->view->setVar('loginError', $loginError);
+                }  
+            }
         }
     }
 

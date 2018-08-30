@@ -204,18 +204,6 @@ class Application extends BaseApplication
                 'action' => 'index',
                 'params' => 1,
             ));
-            $router->add('/san-pham-moi', array(
-                'namespace' => 'Mysomwhow\Frontend\Controllers',
-                'module' => 'frontend',
-                'controller' => 'products',
-                'action' => 'new',
-            ));
-            $router->add('/san-pham-ban-chay', array(
-                'namespace' => 'Mysomwhow\Frontend\Controllers',
-                'module' => 'frontend',
-                'controller' => 'products',
-                'action' => 'seller',
-            ));
             $router->add('/products/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
