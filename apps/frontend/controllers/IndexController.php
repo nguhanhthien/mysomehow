@@ -13,14 +13,14 @@ class IndexController extends BaseController
     		'sort' => [
                 'updated_at' => -1,
             ],
-    		'limit' => 10,
+    		'limit' => 8,
     	]);
     	$this->view->setVar('new_products', $new_products);
 
 		// sold product
     	$sold_products = Products::find([
     		'sort' => ['sold' => -1],
-    		'limit' => 10,
+    		'limit' => 8,
     	]);
     	$this->view->setVar('sold_products', $sold_products);
 

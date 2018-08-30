@@ -10,8 +10,8 @@
 			<p>Bạn chưa đặt mua sản phẩm.</p>
 		</div>
 		<div class="col-xs-12" id="customer_sidebar">
-			<h2>Vinh Phan</h2>
-			<p class="email ">kiepvozanh11@gmail.com</p>
+			<h2><?= $this->session->get("userName") ?></h2>
+			<p class="email "><?= $this->session->get("email") ?></p>
 			<div class="address ">
 				<p></p>
 				<p></p>

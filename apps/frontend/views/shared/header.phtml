@@ -7,14 +7,14 @@
                     <img src="<?php echo $this->url->get('img/14/'.$setting->web_logo) ?>" alt="SomeHow Store" />
                 </a>
             </h1>
-            <div class="form-search">
+            <!-- <div class="form-search">
                 <form action="" method="get" class="search-bar" role="search" onsubmit="">
                   <input type="search" name="search" value="" placeholder="Tìm kiếm..."  class="search-field tt-input" id="search-field" >
                   <button type="submit" class="search-bar--submit icon-fallback-text">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                   </button>
                 </form>
-            </div>
+            </div> -->
             <div class="user-cart hidden-xs hidden-sm">
                 <?php 
                 if ($this->session->has('userName')) {
@@ -47,6 +47,7 @@
                                 <ul class="menu-item bg">
                                     <li><a href="<?= $this->url->get('collections/san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
                                     <li><a href="<?= $this->url->get('collections/san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
+                                    <li><a href="<?= $this->url->get('collections/all-item') ?>">ALL ITEM</a></li>
                                 </ul>
                                 <?php foreach ($categories as $category) : ?>
                                     <?php if (is_null($category->parent_id)) { ?>
@@ -73,7 +74,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('he-thong-cua-hang') ?>">Địa chỉ cửa hàng</a>
+                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('he-thong-cua-hang') ?>">Tìm kiếm</a>
                     </li>
                 </ul>
             </div>

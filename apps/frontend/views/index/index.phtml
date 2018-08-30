@@ -3,66 +3,73 @@
 
 <!-- layout banner index -->
 <div class="banner-index">
-   <div class="container">
+   <div class="main-title text-center">
+      <div class="container">
+         <h2>Sản phẩm mới</h2>
+         <p class="shop-now pull-right">
+            <a href="<?php echo $this->url->get('collections/san-pham-moi') ?>">Xem thêm <i class="fa fa-angle-double-right"></i></a>
+         </p>
+      </div>
+   </div>
+
+   <div class="container wrapper" style="margin-top: 20px;">
       <div class="row">
-         <div class="main-title text-center">
-            <h2>Sản phẩm mới</h2>
-            <p class="shop-now">
-               <a href="<?php echo $this->url->get('collections/san-pham-moi') ?>">Xem thêm</a>
-            </p>
-         </div>
-         <div id="owl-product-index2" class="owl-carousel owl-theme clearfix banner-list">
-            <?php foreach ($new_products as $product) : ?>
-            <div class="banner-item">
-               <div class="img">
-                  <a href="<?= $this->url->get('products/'.$product->_id) ?>">
-                     <div class="img-show" style="background: url(<?php echo $this->url->get('img/product/'.$product->images[1]['link']) ?>) no-repeat;background-size: cover;background-position: center;" ></div>
+         <div class="grid-item">
+            <div class="grid-uniform">
+               <!-- ----------------------------------------------------- -->
+               <?php foreach ($new_products as $product) : ?>
+               <div class="grid-item small--one-half medium--one-quarter large--one-quarter">
+                  <a href="<?= $this->url->get('products/'.$product->_id) ?>" class="product-grid-item">
+                     <div class="product-grid-image">
+                        <div class="product-grid-image--centered">
+                           <div class="lazyload__image-wrapper no-js" style="padding-top:150.0%;">
+                              <img data-srcset="" height="330px" srcset="<?= $this->url->get('img/product/'.$product->images[0]['link']) ?>">
+                           </div>
+                        </div>
+                     </div>
+                     <p><?= $product->title ?></p>
+                     <div class="product-item--price">
+                        <span class="h1 medium--left">
+                        <small aria-hidden="true"><?= number_format($product->price['promo_price']) ?>₫</small>
+                        </span>
+                     </div>
+                     <div class="color">
+                        <ul class="list-inline text-center">
+                        <?php foreach ($product->images as $img):?>
+                        <?php if( $img['color'] != null ): ?>
+                           <li class="list-inline-item" title="<?= $img['color'] ?>">
+                              <img style="width: 40px;height: 40px;border-radius: 50%;" src="<?= $this->url->get('img/product/'.$img['link']) ?>">
+                           </li>
+                        <?php endif ?>
+                        <?php endforeach; ?>
+                        </ul>
+                     </div>
                   </a>
                </div>
-               <div class="info">
-                  <h3><a href="<?= $this->url->get('products/'.$product->_id) ?>"><?= $product->title ?></a></h3>
-                  <div class="prices">
-                     <span><?= number_format($product->price['promo_price']) ?>₫</span>
-                  </div>
-               </div>
+               <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
          </div>
+         
       </div>
    </div>
 </div>
 
 <!-- layout all items -->
+<div class="main-title text-center">
+   <div class="container">
+      <h2>Sản phẩm bán chạy</h2>
+      <p class="shop-now pull-right">
+         <a href="<?php echo $this->url->get('collections/san-pham-ban-chay') ?>">Xem thêm <i class="fa fa-angle-double-right"></i></a>
+      </p>
+   </div>
+</div>
 <main class="wrapper main-content" role="main">
    <div id="shopify-section-collection-template" class="shopify-section collection-template-section">
-   <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-      <a href="<?= $this->url->get('') ?>" title="Back to the frontpage">Home</a>
-      <span class="divider" aria-hidden="true">›</span>
-      <span>All Items</span>
-   </nav>
    <div class="grid grid-border">
    <div class="grid-item">
-      <header class="section-header">
-         <h3 class="section-header--title">All Items</h3>
-         <div class="section-header--right">
-            <form action="" id="form_sort" method="get">
-            <div class="form-horizontal">
-               <label for="sortBy" class="small--hide">Sắp xếp theo</label>
-               <select name="sort_by" id="sort_by">
-                  <option value="created-descending" <?= $sort_by=='created-descending'?'selected':'' ?>>Mới nhất</option>
-                  <option value="best-selling" <?= $sort_by=='best-selling'?'selected':'' ?>>Sản phẩm bán chạy</option>
-                  <option value="title-ascending" <?= $sort_by=='title-ascending'?'selected':'' ?>>Tên, A-Z</option>
-                  <option value="title-descending" <?= $sort_by=='title-descending'?'selected':'' ?>>Tên, Z-A</option>
-                  <option value="price-ascending" <?= $sort_by=='price-ascending'?'selected':'' ?>>Giá: Tăng dần</option>
-                  <option value="price-descending" <?= $sort_by=='price-descending'?'selected':'' ?>>Giá: Giảm dần</option>
-               </select>
-            </div>
-            </form>
-         </div>
-      </header>
       <div class="grid-uniform">
          <!-- ----------------------------------------------------- -->
-         <?php foreach ($products as $product) : ?>
+         <?php foreach ($sold_products as $product) : ?>
          <div class="grid-item small--one-half medium--one-quarter large--one-quarter">
             <a href="<?= $this->url->get('products/'.$product->_id) ?>" class="product-grid-item">
                <div class="product-grid-image">
@@ -81,100 +88,12 @@
             </a>
          </div>
          <?php endforeach; ?>
-         <!-- ----------------------------------------------------- -->
-         <div class="grid-item pagination-border-top">
-            <div class="grid">
-               <div class="grid-item">
-                  <div class="text-center">
-                     <?php $current = $pages->current ?>
-                     <?php $total_pages = $pages->total_pages; ?>
-                     <ul class="pagination-custom">
-                     <!-- pre-->
-                     <?php if ($current==1) : ?>
-                     <li class="disabled"><span>←</span></li>
-                     <li class="active"><span>1</span></li>
-                     <?php else: ?>
-                     <li>
-                        <a href="<?= $this->url->get('?page='.$pages->before) ?>" title="">←</a>
-                     </li>
-                     <li>
-                        <a href="<?= $this->url->get('?page='.$pages->first) ?>" title=""><?= $pages->first ?></a>
-                     </li>
-                     <?php endif; ?>
-                     <!-- show ...  -->
-                     <?php if ($current > $pages->first+3) : ?>
-                     <li><span>…</span></li>
-                     <?php endif; ?>
-                     <!-- // limit show pagination -->
-                     <?php for ($i=max(1,$current-2); $i <= min($current+2,$total_pages); $i++) : ?>
-                     <?php if ($i==$pages->first||$i==$pages->last) {
-                        // if current = first or current = last >> pass
-                        continue;
-                        }else { ?>
-                     <li class="<?= $current==$i ? 'active':'' ?>">
-                        <a href="<?= $this->url->get('?page='.$i) ?>"><?= $i ?></a>
-                     </li>
-                     <?php }; ?>
-                     <?php endfor; ?>
-                     <!-- show ...  -->
-                     <?php if ($current < $pages->last-3) : ?>
-                     <li><span>…</span></li>
-                     <?php endif; ?>
-                     <!-- next -->
-                     <?php if ($current==$total_pages) : ?>
-                     <li class="active"><span><?= $pages->last ?></span></li>
-                     <li class="disabled"><span>→</span></li>
-                     <?php else: ?>
-                     <li>
-                        <a href="<?= $this->url->get('?page='.$pages->last) ?>" title=""><?= $pages->last ?></a>
-                     </li>
-                     <li>
-                        <a href="<?= $this->url->get('?page='.$pages->next) ?>" title="">→</a>
-                     </li>
-                     <?php endif; ?>
-                  </div>
-               </div>
-            </div>
-         </div>
       </div>
    </div>
 </main>
 
-<!-- layout banner index -->
-<div class="best-seller">
-	<div class="container">
-		<div class="row">
-			<div class="main-title text-center">
-				<h2>Sản phẩm bán chạy</h2>
-				<p class="shop-now">
-					<a href="<?php echo $this->url->get('collections/san-pham-ban-chay') ?>">Xem thêm</a>
-				</p>
-			</div>
-			<div id="owl-product-index" class="owl-carousel owl-theme">
-				<?php foreach ($sold_products as $product) : ?>
-				<div class="item">
-					<div class="product-item">
-						<div class="img">
-							<a href="products/<?= $product->_id ?>">
-								<div class="img-show" style="background: url(<?php echo $this->url->get('img/product/'.$product->images[1]['link']) ?>) no-repeat;background-size: cover;background-position: center;" ></div>
-							</a>
-						</div>
-						<div class="info">
-							<h3><a href="products/<?= $product->_id ?>"><?= $product->title ?></a></h3>
-							<div class="prices">
-								<span><?= number_format($product->price['promo_price']) ?>₫</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- layout banner bottom -->
-<?php $this->partial("shared/banner-bottom"); ?>
+<?php //$this->partial("shared/banner-bottom"); ?>
 
 <script type="text/javascript">
    $(document).ready(function () {

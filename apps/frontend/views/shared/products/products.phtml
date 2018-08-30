@@ -5,7 +5,7 @@
 		<div class="collection-left">
 			<h1><?= $category->title ?></h1>
 			<div class="description">
-				<img src="<?= $this->url->get('img/collection/'.$category->images['image']) ?>" alt="Sản Phẩm Bán Chạy" />
+				<img src="<?= $category->images['image'] != null ? $this->url->get('img/collection/'.$category->images['image'])  : $this->url->get('img/collection/logo.jpg')?>" alt="Sản Phẩm Bán Chạy" />
 			</div>
 		</div>
 		<div class="collection-img hidden-xs">

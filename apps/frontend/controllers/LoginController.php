@@ -10,7 +10,6 @@ class LoginController extends BaseController
     {
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
-                echo "Token ok"; die();
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
 
