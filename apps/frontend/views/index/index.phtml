@@ -85,6 +85,17 @@
                   <small aria-hidden="true"><?= number_format($product->price['promo_price']) ?>₫</small>
                   </span>
                </div>
+               <div class="color">
+                        <ul class="list-inline text-center">
+                        <?php foreach ($product->images as $img):?>
+                        <?php if( $img['color'] != null ): ?>
+                           <li class="list-inline-item" title="<?= $img['color'] ?>">
+                              <img style="width: 40px;height: 40px;border-radius: 50%;" src="<?= $this->url->get('img/product/'.$img['link']) ?>">
+                           </li>
+                        <?php endif ?>
+                        <?php endforeach; ?>
+                        </ul>
+                     </div>
             </a>
          </div>
          <?php endforeach; ?>
