@@ -8,21 +8,13 @@
 		</div>
 		<div class="about-us">
 			<div class="title text-center">
-				<h1>Giới thiệu</h1>
+				<h1><?= $about->title ?></h1>
 			</div>
 			<div class="img-top">
 				<img src="<?php echo $this->url->get('img/14/about_top_imgc79a.jpg') ?>" alt="Giới thiệu" />
 			</div>
 			<div class="page-content">
-				<p>
-					<span style="font-size: 12pt;" data-mce-style="font-size: 12pt;">SOMEHOW STORE&nbsp;</span><br><br>
-					<span style="font-size: 12pt;" data-mce-style="font-size: 12pt;"><em>Bằng cách nào đó</em> --- Chúng tôi luôn cố gắng mang những sản phẩm thời trang dành cho nam với tính thẩm mĩ bắt kịp <strong>xu hướng nhanh nhất, chất lượng hàng hóa tốt nhất</strong>.</span><br><br>
-					<span style="font-size: 12pt;" data-mce-style="font-size: 12pt;">Chúng tôi luôn đảm bảo từng sản phẩm được trưng bày và bán ở SomeHow Store đều đã được anh em chúng tôi trải nghiệm, và kiểm tra rất kĩ về chất lượng cũng như mẫu mã.</span>
-					<span class="text_exposed_show"><br><br>
-						<span style="font-size: 12pt;" data-mce-style="font-size: 12pt;">Cung cấp những thương hiệu chính hãng dành cho Nam: <strong>INF, Bensteven, R.A.W, Icoin&amp;Denim</strong>,.....</span>
-						<br><br><em>Địa chỉ:&nbsp;</em><br>Store 1: 17bis Huỳnh Đình Hai, P14 - Quận Bình Thạnh, Tp.HCM<br>Store 2: 332 Cao Đạt, P.1 - Quận 5, Tp.HCM<br>Store 3: 188/16 Thành Thái P.12 Quận 10, Tp.HCM<br><br>HotLine: <span>0287 307 64 64</span><br><br><br><em>Chuyển khoản theo TK:</em><br><br>*Vietcombank:<span>&nbsp;</span><br>Số tài khoản: 0531002495503<br>Chủ tài khoản: Trần Đại Dương<br>Chi nhánh Bình Thạnh, HCM<br><br>*ACB:<br>Số tài khoản: 157340939<br>Chủ tài khoản: Trần Đại Dương<br>Chi nhánh Hàng Xanh, HCM
-					</span>
-				</p>
+				<?= $about->content ?>
 			</div>
 		</div>
 	</div>

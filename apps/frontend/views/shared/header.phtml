@@ -7,14 +7,6 @@
                     <img src="<?php echo $this->url->get('img/14/'.$setting->web_logo) ?>" alt="SomeHow Store" />
                 </a>
             </h1>
-            <!-- <div class="form-search">
-                <form action="" method="get" class="search-bar" role="search" onsubmit="">
-                  <input type="search" name="search" value="" placeholder="Tìm kiếm..."  class="search-field tt-input" id="search-field" >
-                  <button type="submit" class="search-bar--submit icon-fallback-text">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                  </button>
-                </form>
-            </div> -->
             <div class="user-cart hidden-xs hidden-sm">
                 <?php 
                 if ($this->session->has('userName')) {
@@ -25,10 +17,6 @@
                 }?>
                 <a href="<?php echo $this->url->get('gio-hang') ?>" class="cart-top"><i class="mdi  mdi-cart-outline"></i>
                      GIỎ HÀNG
-                    <!-- <div class="cart-top-info">
-                        <p>Tổng cộng: 0</p>
-                        <span>GIỎ HÀNG</span>
-                    </div> -->
                 </a>
             </div>
         </div>
@@ -48,6 +36,7 @@
                                     <li><a href="<?= $this->url->get('collections/san-pham-moi') ?>">SẢN PHẨM MỚI</a></li>
                                     <li><a href="<?= $this->url->get('collections/san-pham-ban-chay') ?>">SẢN PHẨM BÁN CHẠY</a></li>
                                     <li><a href="<?= $this->url->get('collections/all-item') ?>">ALL ITEM</a></li>
+                                    <li><a href="<?= $this->url->get('he-thong-cua-hang') ?>">HỆ THỐNG CỬA HÀNG</a></li>
                                 </ul>
                                 <?php foreach ($categories as $category) : ?>
                                     <?php if (is_null($category->parent_id)) { ?>
@@ -67,29 +56,21 @@
                         <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('gioi-thieu') ?>">Giới thiệu</a>
                     </li>
                     <li class=" has-child" >
-                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Hướng dẫn</a>
+                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Bài viết</a>
                         <ul class="child">
-                            <li><a href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Hướng Dẫn Mua Hàng Online</a></li>
+                            <?php foreach ($bloghead as $value) : ?>
+                                <?php if ($value->_id != 'gioi-thieu') : ?>
+                                    <li><a href="<?php echo $this->url->get('blogs/'.$value->_id) ?>"><?php echo  $value->title ?></a></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                             <li><a href="<?php echo $this->url->get('huong-dan-lua-chon-size') ?>">Hướng Dẫn Lựa Chọn Size</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'address' ? 'active' : null ?> " href="<?php echo $this->url->get('he-thong-cua-hang') ?>">Tìm kiếm</a>
+                        <a class="" href="<?php echo $this->url->get('search') ?>">Tìm kiếm</a>
                     </li>
                 </ul>
             </div>
-            <!-- <div class="search-pc pull-right"><span>Tìm kiếm</span>
-                <div class="search-bar">
-                    <div class="container">
-                        <form action="http://somehow.vn/search" class="search-top">
-                            <label>Tìm kiếm:</label>
-                            <input type="hidden" name="type" value="product" />
-                            <input type="text" name="q" placeholder="Nhập từ khóa tìm kiếm..." />
-                            <button type="submit" class="search-btn">Nhập</button>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
     <section class="header-new visible-xs visible-sm">

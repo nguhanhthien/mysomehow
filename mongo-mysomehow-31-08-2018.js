@@ -6,6 +6,13 @@ db.getCollection("admin").ensureIndex({
   
 ]);
 
+/** blogs indexes **/
+db.getCollection("blogs").ensureIndex({
+  "_id": NumberInt(1)
+},[
+  
+]);
+
 /** categories indexes **/
 db.getCollection("categories").ensureIndex({
   "_id": NumberInt(1)
@@ -119,9 +126,9 @@ db.getCollection("admin").insert({
   "email": "daitran@hhdgroup.com",
   "address": "136 Cô Bắc , Quận 1, TP HCM",
   "password": "$2y$08$YTlYMlF0Y0E1TTNXMFhBbuQ8LsIELbbRCKDBWAe71Gx36QBJzFu52",
-  "roler": "roots",
   "created_at": NumberInt(1533573124),
-  "updated_at": NumberInt(1535507455)
+  "updated_at": NumberInt(1535507455),
+  "roles": "roots"
 });
 db.getCollection("admin").insert({
   "_id": ObjectId("5b87a4da16d5bd6805000029"),
@@ -130,9 +137,32 @@ db.getCollection("admin").insert({
   "email": "vinhphan@hhdgroup.com",
   "address": "987654321",
   "password": "$2y$08$MW5VRnFBUlFTMWJiakVwU.x2PKjU82IoDPEfZV3DFigyPTY7VLYey",
-  "roler": null,
   "created_at": NumberInt(1535616218),
-  "updated_at": NumberInt(1535616441)
+  "updated_at": NumberInt(1535616441),
+  "roles": null
+});
+
+/** blogs records **/
+db.getCollection("blogs").insert({
+  "_id": "huong-dan-mua-hang-online",
+  "title": "Hướng Dẫn Mua Hàng Online",
+  "content": "<br><strong>Bước 1:</strong> \r\n<span> Bạn có thể truy cập vào website Somehow.vn và </span>\r\n<span>Chọn từng danh mục sản phẩm để tìm kiếm.</span><br>\r\n<img src=\"//file.hstatic.net/1000026602/file/6.jpg\"></p><p>\r\n<span></span><br></p><p>\r\n<span><strong>Bước 2:</strong> \r\nSau khi chọn được nhóm sản phẩm cần mua, bạn có thể tìm kiếm sản phẩm mình cần một cách nhanh chóng. (Ví dụ: Vào nhóm áo thun, tìm áo thun trơn tay ngắn cổ tròn. Đầu tiên chọn danh mục áo thun, và bấm vào phần lọc theo để tìm kiếm như hình dưới)</span></p><p>\r\n<img src=\"//file.hstatic.net/1000026602/file/7.jpg\"></p><p><span></span><br></p><p>\r\n<span><strong>Bước 3:</strong> \r\nSau khi đã chọn được sản phẩm cần mua, bạn chọn nút thêm sản phẩm vào giỏ hàng - nếu bạn muốn tìm và mua thêm sản phẩm khác. </span></p><p>\r\n<span>Sau khi đã thêm vào giỏ hàng đầy đủ các sản phẩm bạn muốn mua. Hãy click vào icon giỏ hàng để kiểm tra đơn hàng.</span>\r\n<span></span></p><p>\r\n<img src=\"//file.hstatic.net/1000026602/file/8.jpg\"></p><p>\r\n<strong>Bước 4:</strong> \r\nỞ trang giỏ hàng, bạn có thể điều chỉnh số lượng sản phẩm hoặc xóa sản phẩm nếu không thích nữa. Sau khi đã kiểm tra xong, bấm vào nút thanh toán và điền đầy đủ thông tin cá nhân.<span></span></p><p>\r\n<img src=\"//file.hstatic.net/1000026602/file/9.jpg\"></p><p><br></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\">\r\n<em>* Bạn cần nhập đầy đủ và chính xác thông tin để hàng có thể được giao đến đúng địa chỉ người mua hàng, tránh việc thất lạc hoặc không giao được đơn hàng đến cho bạn.</em><br></p><p>\r\n<img src=\"//file.hstatic.net/1000026602/file/10.jpg\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><em></em><br></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\">\r\n- Sau khi điền đầy đủ thông tin và kiểm tra lại đơn hàng, giá tiền, bạn hãy bấm vào nút \r\n<strong>HOÀN TẤT ĐƠN HÀNG</strong>.<br></p>\r\n<p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\">Nhân viên shop sẽ liên hệ với bạn qua điện thoại để xác nhận đơn hàng và thông tin giao hàng.</p>",
+  "created_at": NumberInt(1535700052),
+  "updated_at": NumberInt(1535700052)
+});
+db.getCollection("blogs").insert({
+  "_id": "gioi-thieu",
+  "title": "Giới thiệu",
+  "content": "<p><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">SOMEHOW STORE </span><br><br>\r\n<span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">\r\n<em>Bằng cách nào đó</em> --- Chúng tôi luôn cố gắng mang những sản phẩm thời trang dành cho nam với tính thẩm mĩ bắt kịp <strong>xu hướng nhanh nhất, chất lượng hàng hóa tốt nhất</strong>.</span><br><br>\r\n<span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">\r\nChúng tôi luôn đảm bảo từng sản phẩm được trưng bày và bán ở SomeHow Store đều đã được anh em chúng tôi trải nghiệm, và kiểm tra rất kĩ về chất lượng cũng như mẫu mã.</span>\r\n<span class=\"text_exposed_show\"><br><br>\r\n<span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">\r\nCung cấp những thương hiệu chính hãng dành cho Nam: <strong>INF, Bensteven, R.A.W, Icoin&Denim</strong>,.....</span>\r\n<br><br>\r\n<em>Địa chỉ: </em><br>\r\nStore 1: 17bis Huỳnh Đình Hai, P14 - Quận Bình Thạnh, Tp.HCM<br>\r\nStore 2: 332 Cao Đạt, P.1 - Quận 5, Tp.HCM<br>\r\nStore 3: 188/16 Thành Thái P.12 Quận 10, Tp.HCM<br><br>HotLine: <span>0287 307 64 64</span><br><br><br><em>\r\nChuyển khoản theo TK:</em><br><br>\r\n*Vietcombank:<span> </span><br>\r\nSố tài khoản: 0531002495503<br>\r\nChủ tài khoản: Trần Đại Dương<br>\r\nChi nhánh Bình Thạnh, HCM<br><br>*ACB:<br>\r\nSố tài khoản: 157340939<br>\r\nChủ tài khoản: Trần Đại Dương<br>\r\nChi nhánh Hàng Xanh, HCM\r\n</span></p>",
+  "created_at": NumberInt(1535700653),
+  "updated_at": NumberInt(1535702489)
+});
+db.getCollection("blogs").insert({
+  "_id": "test-choi",
+  "title": "Test chơi",
+  "content": "ádfasdf",
+  "created_at": NumberInt(1535702244),
+  "updated_at": NumberInt(1535702461)
 });
 
 /** categories records **/
@@ -12172,21 +12202,21 @@ db.getCollection("setting").insert({
       "address": "17 Bis Huỳnh Đình Hai P.14 Quận Bình Thạnh",
       "phone": "0909 045 600",
       "images": "page_store_1.jpg",
-      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.547912911216!2d106.66392431435042!3d10.769282992326398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b8d16ba3a5%3A0xa1bb329cedcb01c9!2sSomeHow+Store!5e0!3m2!1svi!2s!4v1535352201629\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
+      "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.547912911216!2d106.66392431435042!3d10.769282992326398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b8d16ba3a5%3A0xa1bb329cedcb01c9!2sSomeHow+Store!5e0!3m2!1svi!2s!4v1535352201629"
     },
     {
       "id": "332-cao-dat-p1-quan-5",
       "address": "332 Cao Đạt P.1 Quận 5",
       "phone": "01634 100 200",
       "images": "page_store_2.jpg",
-      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7496017428452!2d106.67810001435015!3d10.753771392336908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f03b9bcf79d%3A0xe8072e19dfa3166a!2zMzMyIENhbyDEkOG6oXQsIHBoxrDhu51uZyAxLCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1535352073869\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
+      "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7496017428452!2d106.67810001435015!3d10.753771392336908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f03b9bcf79d%3A0xe8072e19dfa3166a!2zMzMyIENhbyDEkOG6oXQsIHBoxrDhu51uZyAxLCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1535352073869"
     },
     {
-      "id": "18816-thanh-thai-p12-quan-100",
-      "address": "188/16 Thành Thái P.12 Quận 100",
-      "phone": "01667 131 234",
+      "id": "18816-thanh-thai-p12-quan-1000",
+      "address": "188/16 Thành Thái P.12 Quận 1000",
+      "phone": "01667 131 2345",
       "images": "page_store_3.jpg",
-      "maps": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7839.008365126168!2d106.6606842225118!3d10.772643319296277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec4b7343f1d%3A0xbb06228fd066a74d!2sSomehow+Store!5e0!3m2!1svi!2s!4v1535352158812\" width=\"800\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>"
+      "maps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7839.008365126168!2d106.6606842225118!3d10.772643319296277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec4b7343f1d%3A0xbb06228fd066a74d!2sSomehow+Store!5e0!3m2!1svi!2s!4v1535352158812"
     }
   ],
   "social": {
@@ -12195,7 +12225,7 @@ db.getCollection("setting").insert({
   },
   "phone_support": "0287 307 64 64",
   "created_at": NumberInt(1535339863),
-  "updated_at": NumberInt(1535443093)
+  "updated_at": NumberInt(1535694240)
 });
 
 /** size records **/
@@ -12255,7 +12285,8 @@ db.getCollection("slides").insert({
   "description": "",
   "images": "slideshow_1c79a.jpg",
   "created_at": NumberInt(1535445104),
-  "updated_at": NumberInt(1535446106)
+  "updated_at": NumberInt(1535446106),
+  "links": "collections/san-pham-moi"
 });
 db.getCollection("slides").insert({
   "_id": ObjectId("5b8508eb16d5bd2c2f000029"),
@@ -12263,7 +12294,8 @@ db.getCollection("slides").insert({
   "description": "",
   "images": "slideshow_2c79a.jpg",
   "created_at": NumberInt(1535445227),
-  "updated_at": NumberInt(1535445227)
+  "updated_at": NumberInt(1535445227),
+  "links": "collections/san-pham-ban-chay"
 });
 db.getCollection("slides").insert({
   "_id": ObjectId("5b8508f016d5bd2c2f00002a"),
@@ -12271,7 +12303,8 @@ db.getCollection("slides").insert({
   "description": "",
   "images": "slideshow_3c79a.jpg",
   "created_at": NumberInt(1535445232),
-  "updated_at": NumberInt(1535445232)
+  "updated_at": NumberInt(1535445232),
+  "links": ""
 });
 
 /** test records **/

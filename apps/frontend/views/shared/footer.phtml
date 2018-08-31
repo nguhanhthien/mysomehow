@@ -3,13 +3,15 @@
 		<div class="container">
 			<div class="footer-address clearfix">
 				<?php $count = 1; foreach ($setting->info as $info) : ?>
-				<div class="adress-item">
-					<h4>Store <?= $count ?></h4>
-					<ul>
-						<li class="add"><i class="fa fa-home"></i><?= $info['address'] ?></li>
-						<li class="hotline"><a href="tel:0909045600"><i class="fa fa-phone"></i>
-							<?= $info['phone'] ?></a></li>
-					</ul>
+				<div class="col-md-4">
+					<div class="adress-item">
+						<h4>Store <?= $count ?></h4>
+						<ul>
+							<li class="add"><i class="fa fa-home"></i><?= $info['address'] ?></li>
+							<li class="hotline"><a href="tel:0909045600"><i class="fa fa-phone"></i>
+								<?= $info['phone'] ?></a></li>
+						</ul>
+					</div>
 				</div>
 				<?php endforeach; ?>
 			</div>
@@ -28,3 +30,4 @@
 		© <?= date('Y') ?> SOMEHOW. Văn phòng: <?= $setting->info[0]['address'] ?>
 	</div>
 </footer>
+	

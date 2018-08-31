@@ -20,7 +20,6 @@
             <label class="col-sm-1 col-form-label">Tháng:</label>
             <div class="col-sm-3">
               <select class="form-control" name="from_month" id="from_month">
-                <option value=""></option>
                 <?php for ($i=1; $i <=12 ; $i++) : ?>
                   <option value="<?= $i ?>" <?= @$params['from_month']== $i?'selected':'' ?>>
                   Tháng <?= $i ?></option>
@@ -56,11 +55,17 @@
             	<?php $count=1; foreach ($report as $value) : ?>
                 <tr>
                   <td><?= $count ?></td>
-                  <td><?php if ($params['key_sort']=='loai-san-pham') : ?>
-                      <?= $value['name'] ?>
-                    <?php elseif ($params['key_sort']=='san-pham') : ?>
-                      <?= Phalcon\Tag::linkTo('backend/products/show/'.$value['id'], $value['name']) ?>
-                    <?php endif; ?>
+                  <td>
+                    <?php switch (@$params['key_sort']) {
+                      case 'loai-san-pham':
+                        echo $value['name'];
+                        break;
+                      case 'san-pham':
+                        echo Phalcon\Tag::linkTo('backend/products/show/'.$value['id'], $value['name']);
+                        break;
+                      default:
+                        break;
+                    } ?>
                   </td>
                   <td><?= $value['quantity'] ?></td>
                   <td><?= number_format($value['total_price']) ?> <u>đ</u></td>

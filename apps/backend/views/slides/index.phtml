@@ -12,6 +12,7 @@
               <th>STT</th>
               <th>Title</th>
               <th>Description</th>
+              <th>Links</th>
               <th>Hình ảnh</th>
               <th>Ngày tạo</th>
               <th>Ngày update</th>
@@ -24,6 +25,8 @@
               <td><?= $count ?></td>
               <td><?= $slide->title ?></td>
               <td><?= $slide->description ?></td>
+              <td><a href="<?= $this->url->get(''.$slide->links) ?>">
+                <?= mb_strimwidth($slide->links, 0, 10, '...') ?></a></td>
               <td><?= Phalcon\Tag::image('img/slides/'.$slide->images, true) ?></td>
               <td><?= date('d/m/Y', $slide->created_at) ?></td>
               <td><?= date('d/m/Y', $slide->updated_at) ?></td>

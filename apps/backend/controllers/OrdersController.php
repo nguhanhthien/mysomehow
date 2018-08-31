@@ -81,6 +81,13 @@ class OrdersController extends BaseController
         }
 
         //set time
+        if (is_null($params['from_month'])) {
+            $params = array(
+                'key_sort' => 'san-pham',
+                'from_month' => 1,
+                'from_year' => 2018,
+            );
+        }
         $lasttime = strtotime('31-'.$params['from_month'].'-'.$params['from_year'].' 23:59:59');
         $firsttime = strtotime('01-'.$params['from_month'].'-'.$params['from_year'].' 00:00:00');
 
@@ -167,6 +174,7 @@ class OrdersController extends BaseController
                 $this->view->setVar('report', $report);
                 break;
             default:
+                
                 break;
         }
     }

@@ -2,13 +2,21 @@
 namespace Mysomwhow\Frontend\Controllers;
 
 use Models\Size;
+use Models\Blogs;
 
-class BlogsController extends BaseController
+class IntroduceController extends BaseController
 {
 
-    public function indexAction()
+    public function indexAction($id = null)
     {
-
+        if ($id) {
+            $blogs = Blogs::findFirst([
+                ['_id' => $id]
+            ]);
+            if ($blogs) {
+                $this->view->setVar('blogs', $blogs);
+            }
+        }
     }
 
     public function sizeAction($id = null)

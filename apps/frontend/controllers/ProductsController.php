@@ -41,7 +41,7 @@ class ProductsController extends BaseController
                 $input = ['_id' => -1];
                 break;
             default:
-                $input = ['created_at' => -1];
+                $input = null;
                 break;
         }
 
@@ -80,6 +80,17 @@ class ProductsController extends BaseController
                     if (!$input) {
                         $input = ['sold' => -1];
                     }
+                    
+                    // find products for input
+                    $products = Products::find([
+                        'sort' => $input,
+                        'limit' => $limit,
+                        'skip' => ($currentPage - 1) * $limit,
+                    ]);
+                    break;
+                case 'all-item':
+                    //pagination product
+                    $totalItems = Products::count();
 
                     // find products for input
                     $products = Products::find([
@@ -121,16 +132,6 @@ class ProductsController extends BaseController
         $this->view->setVar('products', $products);
         $this->view->setVar('pages', $pagination);
         $this->view->setVar('sort_by', $sort_by);
-    }
-
-    public function newAction()
-    {
-        # code...
-    }
-
-    public function sellerAction()
-    {
-        # code...
     }
 
     public function showAction($id = null)

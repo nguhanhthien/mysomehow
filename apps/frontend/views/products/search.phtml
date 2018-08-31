@@ -9,6 +9,16 @@
    </div><br>
    <div class="container">
       <div class="row">
+         <div class="form-search">
+          <form action="" method="get" class="search-bar" role="search" onsubmit="">
+            <input type="search" name="search" value="" placeholder="Tìm kiếm..."  class="search-field tt-input" id="search-field" >
+            <button type="submit" class="search-bar--submit icon-fallback-text">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </form>
+         </div>
+      </div>
+      <div class="row">
          <?php if (isset($products)) : ?>
          <div class="clearfix filter-box">
             <div class="product-filter pull-left">

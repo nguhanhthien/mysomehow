@@ -6,6 +6,7 @@ use Models\Categories;
 use Models\Products;
 use Models\Setting;
 use Models\Slides;
+use Models\Blogs;
 
 class BaseController extends Controller
 {
@@ -20,6 +21,9 @@ class BaseController extends Controller
 
         $slides = Slides::find();
         $this->view->setVar('slides', $slides);
+
+        $bloghead = Blogs::find();
+        $this->view->setVar('bloghead', $bloghead);
 
         //check autocomplete
         $term = $this->request->getQuery('term');

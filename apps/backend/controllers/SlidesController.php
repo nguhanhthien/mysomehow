@@ -20,6 +20,7 @@ class SlidesController extends BaseController
             $params = $this->request->getPost();
             $slides->title = $params['title'];
             $slides->description = $params['description'];
+            $slides->links = $params['links'];
 
             if ($this->request->hasFiles()) {
                 foreach ($this->request->getUploadedFiles() as $file) {
@@ -51,6 +52,7 @@ class SlidesController extends BaseController
                     $params = $this->request->getPost();
                     $slide->title = $params['title'];
                     $slide->description = $params['description'];
+                    $slide->links = $params['links'];
 
                     if ($this->request->hasFiles()) {
                         foreach ($this->request->getUploadedFiles() as $file) {

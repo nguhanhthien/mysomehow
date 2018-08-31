@@ -29,7 +29,7 @@ class Application extends BaseApplication
             function () {
                 $url = new Url();
 
-                $url->setBaseUri('http://myshop.vn/');
+                $url->setBaseUri('http://localhost/mysomehow/');
 
                 return $url;
             }
@@ -164,17 +164,19 @@ class Application extends BaseApplication
                 'controller' => 'about',
                 'action' => 'index',
             ));
-            $router->add('/huong-dan-mua-hang-online', array(
+            $router->add('/blogs/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'introduce',
                 'action' => 'index',
+                'params' => 1,
             ));
-            $router->add('/huong-dan-lua-chon-size', array(
+            $router->add('/huong-dan-lua-chon-size/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'introduce',
                 'action' => 'size',
+                'params' => 1,
             ));
             $router->add('/he-thong-cua-hang', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
@@ -182,29 +184,25 @@ class Application extends BaseApplication
                 'controller' => 'address',
                 'action' => 'index',
             ));
-            $router->add('/collections', array(
+            $router->add('/pages/he-thong-cua-hang/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
-                'controller' => 'products',
-                'action' => 'index',
-            ));
-            $router->add('/collections/san-pham-moi', array(
-                'namespace' => 'Mysomwhow\Frontend\Controllers',
-                'module' => 'frontend',
-                'controller' => 'products',
-                'action' => 'new',
-            ));
-            $router->add('/collections/san-pham-ban-chay', array(
-                'namespace' => 'Mysomwhow\Frontend\Controllers',
-                'module' => 'frontend',
-                'controller' => 'products',
-                'action' => 'seller',
+                'controller' => 'address',
+                'action' => 'pages',
+                'params' => 1,
             ));
             $router->add('/collections/:params', array(
                 'namespace' => 'Mysomwhow\Frontend\Controllers',
                 'module' => 'frontend',
                 'controller' => 'products',
                 'action' => 'index',
+                'params' => 1,
+            ));
+            $router->add('/search/:params', array(
+                'namespace' => 'Mysomwhow\Frontend\Controllers',
+                'module' => 'frontend',
+                'controller' => 'products',
+                'action' => 'search',
                 'params' => 1,
             ));
             $router->add('/products/:params', array(
