@@ -84,7 +84,7 @@ class OrdersController extends BaseController
         if (is_null($params['from_month'])) {
             $params = array(
                 'key_sort' => 'san-pham',
-                'from_month' => 1,
+                'from_month' => 8,
                 'from_year' => 2018,
             );
         }

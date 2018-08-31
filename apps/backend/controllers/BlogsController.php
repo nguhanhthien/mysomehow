@@ -7,6 +7,13 @@ use Models\Blogs;
 
 class BlogsController extends BaseController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->assets->addJs('https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=764iwjtnidikr297cozestajy78urrvoxuhlkhxgt00a8h9d');
+        $this->assets->addJs('ad/js/tinymce.js');
+    }
+
     public function indexAction()
     {   
         $blogs = Blogs::find();

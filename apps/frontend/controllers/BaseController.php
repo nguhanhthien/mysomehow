@@ -25,6 +25,11 @@ class BaseController extends Controller
         $bloghead = Blogs::find();
         $this->view->setVar('bloghead', $bloghead);
 
+        $blog_about = Blogs::findFirst([
+            ['_id' => 'gioi-thieu']
+        ]);
+        $this->view->setVar('blog_about', $blog_about);
+
         //check autocomplete
         $term = $this->request->getQuery('term');
 

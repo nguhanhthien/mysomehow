@@ -25,8 +25,8 @@
               <td><?= $count ?></td>
               <td><?= $slide->title ?></td>
               <td><?= $slide->description ?></td>
-              <td><a href="<?= $this->url->get(''.$slide->links) ?>">
-                <?= mb_strimwidth($slide->links, 0, 10, '...') ?></a></td>
+              <td><a target="_blank" href="<?= $this->url->get(''.$slide->links) ?>">
+                <?= mb_strimwidth($slide->links, 0, 15, '...') ?></a></td>
               <td><?= Phalcon\Tag::image('img/slides/'.$slide->images, true) ?></td>
               <td><?= date('d/m/Y', $slide->created_at) ?></td>
               <td><?= date('d/m/Y', $slide->updated_at) ?></td>

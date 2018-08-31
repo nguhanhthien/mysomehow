@@ -53,10 +53,10 @@
                         </div>
                     </li>
                     <li>
-                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get('gioi-thieu') ?>">Giới thiệu</a>
+                        <a class="<?= $ControllerName == 'about' ? 'active' : null ?> " href="<?php echo $this->url->get(''.$blog_about->_id) ?>">Giới thiệu</a>
                     </li>
                     <li class=" has-child" >
-                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('huong-dan-mua-hang-online') ?>">Bài viết</a>
+                        <a class="<?= $ControllerName == 'introduce' ? 'active' : null ?> " href="<?php echo $this->url->get('blogs/huong-dan-mua-hang-online') ?>">Bài viết</a>
                         <ul class="child">
                             <?php foreach ($bloghead as $value) : ?>
                                 <?php if ($value->_id != 'gioi-thieu') : ?>

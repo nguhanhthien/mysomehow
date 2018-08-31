@@ -160,9 +160,9 @@ db.getCollection("blogs").insert({
 db.getCollection("blogs").insert({
   "_id": "test-choi",
   "title": "Test chơi",
-  "content": "ádfasdf",
+  "content": "<p style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\">Kh&ocirc;ng c&oacute; b&agrave;i viết n&agrave;o hahaha!</p>",
   "created_at": NumberInt(1535702244),
-  "updated_at": NumberInt(1535702461)
+  "updated_at": NumberInt(1535705249)
 });
 
 /** categories records **/
@@ -12301,10 +12301,10 @@ db.getCollection("slides").insert({
   "_id": ObjectId("5b8508f016d5bd2c2f00002a"),
   "title": "",
   "description": "",
+  "links": "blogs/test-choi",
   "images": "slideshow_3c79a.jpg",
   "created_at": NumberInt(1535445232),
-  "updated_at": NumberInt(1535445232),
-  "links": ""
+  "updated_at": NumberInt(1535706336)
 });
 
 /** test records **/
